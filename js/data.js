@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUMIÈRE HOME — Mock Data (Demo/Prototype only, no backend)
+   Bax Baxter Home Decor — Mock Data (Demo/Prototype only, no backend)
    ========================================================================== */
 
 const IMG = (seed, w = 800, h = 800) => `https://picsum.photos/seed/${seed}/${w}/${h}`;

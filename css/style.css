@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUMIÈRE HOME — Luxury Minimal Design System
+   BAX BAXTER HOME DECOR — Luxury Minimal Design System
    ========================================================================== */
 
 :root {
@@ -120,16 +120,17 @@ h1, h2, h3, h4 {
 
 .logo {
   font-family: var(--font-serif);
-  font-size: 26px;
+  font-size: 21px;
   font-weight: 600;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 .logo span { color: var(--color-gold); }
 
 .main-nav {
   display: flex;
-  gap: 36px;
+  gap: 28px;
   flex: 1;
   justify-content: center;
 }

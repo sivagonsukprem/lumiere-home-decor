@@ -1,5 +1,5 @@
 /* ==========================================================================
-   LUMIÈRE HOME — Shared Site Logic (Cart, Header inject, Toast, Wishlist)
+   Bax Baxter Home Decor — Shared Site Logic (Cart, Header inject, Toast, Wishlist)
    Prototype only — uses localStorage to simulate backend state.
    ========================================================================== */
 
