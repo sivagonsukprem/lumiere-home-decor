@@ -65,23 +65,15 @@
 </div>
 
 <section class="hero">
-  <div class="hero-bg-shape s1"></div>
-  <div class="hero-bg-shape s2"></div>
+  <img class="hero-bg-img" src="https://picsum.photos/seed/bax-hero-interior/1920/1200" alt="Bax Baxter Home Decor Interior">
   <div class="container hero-inner">
     <div class="hero-content">
       <span class="eyebrow">New Collection 2026</span>
-      <h1>เติมเต็มบ้าน<br>ด้วยความ<em>เรียบหรู</em></h1>
-      <p>คัดสรรเฟอร์นิเจอร์และของแต่งบ้านคุณภาพพรีเมียม ออกแบบเพื่อพื้นที่ที่มีความหมายต่อชีวิตคุณ</p>
+      <h1>MAKE YOUR HOME<br><em>BEAUTIFULLY YOURS</em></h1>
+      <p>Furniture &amp; objects for everyday living — คัดสรรเฟอร์นิเจอร์และของแต่งบ้านคุณภาพพรีเมียม เพื่อพื้นที่ที่มีความหมายต่อชีวิตคุณ</p>
       <div class="hero-actions">
-        <a href="pages/shop/product-list.html" class="btn btn-primary">ช้อปเลย</a>
-        <a href="pages/shop/category.html" class="btn btn-outline">ดูหมวดหมู่สินค้า</a>
-      </div>
-    </div>
-    <div class="hero-visual">
-      <img src="https://picsum.photos/seed/hero-main/900/1100" alt="Hero Interior">
-      <div class="hero-badge">
-        <div class="num">250+</div>
-        <div class="lbl">Premium Pieces</div>
+        <a href="pages/shop/product-list.html" class="btn btn-gold">Explore Collection</a>
+        <a href="pages/shop/category.html" class="btn btn-outline-light">ดูหมวดหมู่สินค้า</a>
       </div>
     </div>
   </div>
@@ -122,7 +114,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section bg-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Curated For You</span>
@@ -133,7 +125,23 @@
   </div>
 </section>
 
-<section class="section-tight">
+<section class="section bg-dark">
+  <div class="container">
+    <div class="editorial-split">
+      <div class="editorial-split-text">
+        <span class="eyebrow">Our Story</span>
+        <h2>งานฝีมือที่เล่าเรื่องราว<br>ของทุกพื้นที่ในบ้านคุณ</h2>
+        <p>เราคัดสรรวัสดุธรรมชาติและช่างฝีมือที่ใส่ใจในทุกรายละเอียด เพื่อให้เฟอร์นิเจอร์แต่ละชิ้นไม่ใช่แค่ของตกแต่ง แต่เป็นส่วนหนึ่งของชีวิตประจำวันที่มีความหมาย</p>
+        <a href="pages/shop/product-list.html" class="btn btn-gold">Explore Collection</a>
+      </div>
+      <div class="banner-card editorial-split-img">
+        <img src="https://picsum.photos/seed/bax-editorial/800/1000" alt="Bax Baxter Craftsmanship">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-tight bg-cream">
   <div class="container">
     <div class="split-banner">
       <div class="banner-card">
@@ -156,7 +164,7 @@
   </div>
 </section>
 
-<section class="section bg-cream">
+<section class="section bg-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">New Arrivals</span>
@@ -167,7 +175,7 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section bg-white">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">Testimonials</span>
@@ -255,10 +263,13 @@ function productCard(p) {
   </div>`;
 }
 
-document.getElementById('home-cat-grid').innerHTML = CATEGORIES.map(c => `
-  <a href="pages/shop/product-list.html?cat=${c.id}" class="cat-card">
+document.getElementById('home-cat-grid').innerHTML = CATEGORIES.slice(0, 6).map((c, i) => `
+  <a href="pages/shop/product-list.html?cat=${c.id}" class="cat-card${i === 0 ? ' cat-card-feature' : ''}">
     <img src="${c.img}" alt="${c.en}">
-    <div class="cat-card-label"><div class="th">${c.th}</div><div class="en">${c.en}</div></div>
+    <div class="cat-card-label">
+      <div><div class="th">${c.th}</div><div class="en">${c.en}</div></div>
+      <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></div>
+    </div>
   </a>`).join('');
 
 document.getElementById('home-featured-grid').innerHTML = PRODUCTS.slice(0, 8).map(productCard).join('');
