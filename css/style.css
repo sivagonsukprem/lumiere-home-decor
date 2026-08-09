@@ -41,7 +41,7 @@
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
 
 body {
   font-family: var(--font-sans);
@@ -50,6 +50,7 @@ body {
   line-height: 1.6;
   font-size: 15px;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img { max-width: 100%; display: block; }
@@ -1003,11 +1004,12 @@ h1, h2, h3, h4 {
    ========================================================================== */
 
 .mobile-drawer {
-  position: fixed; top: 0; right: -100%; width: 86%; max-width: 360px; height: 100vh;
-  background: var(--color-surface); z-index: 300; transition: right 0.35s var(--ease);
+  position: fixed; top: 0; right: 0; width: 86%; max-width: 360px; height: 100vh;
+  background: var(--color-surface); z-index: 300; transition: transform 0.35s var(--ease);
   box-shadow: -10px 0 40px rgba(0,0,0,0.15); overflow-y: auto;
+  transform: translateX(100%);
 }
-.mobile-drawer.open { right: 0; }
+.mobile-drawer.open { transform: translateX(0); }
 .drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; border-bottom: 1px solid var(--color-line); }
 .drawer-close svg { width: 22px; height: 22px; }
 .drawer-nav a { display: flex; justify-content: space-between; align-items: center; padding: 17px 24px; font-size: 15px; border-bottom: 1px solid var(--color-line-soft); }
