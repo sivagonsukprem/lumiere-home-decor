@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ลูกค้าทั้งหมด | LUMIÈRE ADMIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">LUMIÈRE<span>.</span> ADMIN</div>
+    <nav>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ภาพรวม</div>
+        <a href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7 3h4v11h-4V10z"/></svg>
+          Dashboard
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">จัดการสินค้า</div>
+        <a href="products.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          สินค้าทั้งหมด
+        </a>
+        <a href="categories.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          หมวดหมู่สินค้า
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">คำสั่งซื้อ</div>
+        <a href="orders.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-5 8l2 2 4-4"/></svg>
+          รายการสั่งซื้อ
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ลูกค้า</div>
+        <a href="customers.html" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 10-3-6.65"/></svg>
+          ลูกค้าทั้งหมด
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">การตลาด</div>
+        <a href="promotions.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M3 11l8-8 9 9-8 8-9-9zM12 3h7a1 1 0 011 1v7"/></svg>
+          โปรโมชัน
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">รายงาน</div>
+        <a href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V9m4 8V5m4 12v-6M4 21h16a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+          รายงานยอดขาย
+        </a>
+      </div>
+      <div class="admin-nav-group" style="margin-top:14px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+        <a href="../../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          กลับหน้าเว็บไซต์
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h1>ลูกค้าทั้งหมด</h1>
+        <div class="sub">ข้อมูลลูกค้าและประวัติการสั่งซื้อ</div>
+      </div>
+      <div class="admin-account">
+        <div class="account-avatar">A</div>
+        <div>
+          <div class="name">Admin ทดสอบ</div>
+          <div class="role">ผู้ดูแลระบบ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M19 11a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+          <input type="text" id="searchInput" placeholder="ค้นหาชื่อ หรืออีเมลลูกค้า...">
+        </div>
+        <div style="color:var(--color-ink-faint); font-size:12.5px;" id="countNote"></div>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ลูกค้า</th>
+            <th>เบอร์โทรศัพท์</th>
+            <th>คำสั่งซื้อ</th>
+            <th>ยอดซื้อสะสม</th>
+            <th>วันที่สมัคร</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="custTbody"></tbody>
+      </table>
+      <div class="admin-empty" id="emptyState" style="display:none;">ไม่พบลูกค้าที่ค้นหา</div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="custModal">
+  <div class="modal-box modal-wide">
+    <div class="modal-head">
+      <h3 id="modalCustName"></h3>
+      <button class="modal-close" id="closeCustModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div id="custModalBody"></div>
+  </div>
+</div>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+const customers = [
+  { name: 'คุณสมชาย ใจดี', email: 'somchai.j@example.com', phone: '081-234-5678', orders: 8, spent: 84200, joined: '2024-03-12' },
+  { name: 'คุณวรรณา ศรีสุข', email: 'wanna.s@example.com', phone: '089-876-5432', orders: 5, spent: 52900, joined: '2024-05-02' },
+  { name: 'คุณปิยะ วัฒนกุล', email: 'piya.w@example.com', phone: '062-345-1290', orders: 12, spent: 143500, joined: '2023-11-20' },
+  { name: 'คุณนภัสสร ทองคำ', email: 'napassorn.t@example.com', phone: '095-112-4433', orders: 3, spent: 21800, joined: '2025-01-08' },
+  { name: 'คุณธนกร รุ่งเรือง', email: 'thanakorn.r@example.com', phone: '086-777-2211', orders: 6, spent: 67300, joined: '2024-08-15' },
+  { name: 'คุณกมลชนก แสงจันทร์', email: 'kamonchanok.s@example.com', phone: '098-456-7890', orders: 15, spent: 198600, joined: '2023-06-30' },
+  { name: 'คุณอรุณี พงษ์ไพศาล', email: 'arunee.p@example.com', phone: '084-223-9981', orders: 2, spent: 15400, joined: '2025-04-22' },
+  { name: 'คุณเอกชัย โภคทรัพย์', email: 'ekachai.p@example.com', phone: '090-334-7712', orders: 9, spent: 112700, joined: '2024-02-18' },
+  { name: 'คุณสุพัตรา มณีวงศ์', email: 'supattra.m@example.com', phone: '063-887-4456', orders: 4, spent: 38900, joined: '2024-10-05' },
+  { name: 'คุณวิชัย เกียรติศักดิ์', email: 'wichai.k@example.com', phone: '097-556-2298', orders: 7, spent: 79500, joined: '2024-07-11' },
+  { name: 'คุณพิมพ์ชนก อินทรานนท์', email: 'pimchanok.i@example.com', phone: '092-661-3345', orders: 1, spent: 6900, joined: '2025-06-30' },
+  { name: 'คุณกิตติพงษ์ ศักดิ์เจริญ', email: 'kittipong.s@example.com', phone: '088-991-2276', orders: 10, spent: 126800, joined: '2023-09-14' },
+];
+
+function renderCustomers(list) {
+  const tbody = document.getElementById('custTbody');
+  const emptyState = document.getElementById('emptyState');
+  const countNote = document.getElementById('countNote');
+  if (list.length === 0) {
+    tbody.innerHTML = '';
+    emptyState.style.display = 'block';
+    countNote.textContent = '';
+    return;
+  }
+  emptyState.style.display = 'none';
+  countNote.textContent = `ลูกค้าทั้งหมด ${list.length} คน`;
+  tbody.innerHTML = list.map((c, i) => `
+    <tr data-idx="${i}">
+      <td>
+        <div style="display:flex; align-items:center; gap:12px;">
+          <div class="account-avatar" style="width:38px;height:38px;font-size:14px;">${c.name.replace('คุณ', '').charAt(0)}</div>
+          <div>
+            <div style="font-weight:500;">${c.name}</div>
+            <div style="font-size:11.5px;color:var(--color-ink-faint);">${c.email}</div>
+          </div>
+        </div>
+      </td>
+      <td>${c.phone}</td>
+      <td>${c.orders} รายการ</td>
+      <td>${formatTHB(c.spent)}</td>
+      <td>${LH.formatDate(c.joined)}</td>
+      <td>
+        <a class="icon-action view-cust" data-idx="${i}" title="ดูประวัติการสั่งซื้อ">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+        </a>
+      </td>
+    </tr>
+  `).join('');
+}
+renderCustomers(customers);
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  renderCustomers(customers.filter(c => c.name.toLowerCase().includes(q) || c.email.toLowerCase().includes(q)));
+});
+
+const statusCycle = ['completed', 'shipping', 'processing', 'paid', 'cancelled'];
+document.getElementById('custTbody').addEventListener('click', (e) => {
+  const btn = e.target.closest('.view-cust');
+  if (!btn) return;
+  const c = customers[Number(btn.dataset.idx)];
+  document.getElementById('modalCustName').textContent = c.name;
+
+  const historyCount = Math.min(3, Math.max(2, c.orders >= 3 ? 3 : 2));
+  const mockHistory = Array.from({ length: historyCount }).map((_, i) => {
+    const p = PRODUCTS[(btn.dataset.idx * 7 + i * 3) % PRODUCTS.length];
+    const d = new Date();
+    d.setDate(d.getDate() - (i + 1) * 18);
+    return {
+      no: 'LH' + (250100 + Number(btn.dataset.idx) * 13 + i * 5),
+      date: d.toISOString(),
+      status: statusCycle[(Number(btn.dataset.idx) + i) % statusCycle.length],
+      total: p.price,
+      product: p.name,
+    };
+  });
+
+  document.getElementById('custModalBody').innerHTML = `
+    <div class="form-grid" style="margin-bottom:20px;">
+      <div>
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-faint);margin-bottom:6px;">อีเมล</div>
+        <div style="font-size:14px;">${c.email}</div>
+      </div>
+      <div>
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-faint);margin-bottom:6px;">เบอร์โทรศัพท์</div>
+        <div style="font-size:14px;">${c.phone}</div>
+      </div>
+      <div>
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-faint);margin-bottom:6px;">คำสั่งซื้อทั้งหมด</div>
+        <div style="font-size:14px;">${c.orders} รายการ</div>
+      </div>
+      <div>
+        <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-faint);margin-bottom:6px;">ยอดซื้อสะสม</div>
+        <div style="font-size:14px;font-weight:600;color:var(--color-gold);">${formatTHB(c.spent)}</div>
+      </div>
+    </div>
+    <div style="border-top:1px solid var(--color-line); padding-top:16px;">
+      <div style="font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--color-ink-faint);margin-bottom:12px;">ประวัติการสั่งซื้อ</div>
+      ${mockHistory.map(h => `
+        <div style="display:flex; align-items:center; justify-content:space-between; padding:12px 0; border-bottom:1px solid var(--color-line-soft);">
+          <div>
+            <div style="font-weight:600; font-size:13.5px;">${h.no}</div>
+            <div style="font-size:12px;color:var(--color-ink-faint);">${h.product} · ${LH.formatDate(h.date)}</div>
+          </div>
+          <div style="text-align:right;">
+            <div><span class="status-badge status-${h.status}">${LH.statusLabel(h.status)}</span></div>
+            <div style="font-size:13px;font-weight:600;margin-top:4px;">${formatTHB(h.total)}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
+  document.getElementById('custModal').classList.add('show');
+});
+
+document.getElementById('closeCustModal').addEventListener('click', () => document.getElementById('custModal').classList.remove('show'));
+document.getElementById('custModal').addEventListener('click', (e) => { if (e.target.id === 'custModal') e.target.classList.remove('show'); });
+</script>
+</body>
+</html>

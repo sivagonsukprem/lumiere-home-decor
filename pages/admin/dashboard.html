@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard | LUMIÈRE ADMIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">LUMIÈRE<span>.</span> ADMIN</div>
+    <nav>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ภาพรวม</div>
+        <a href="dashboard.html" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7 3h4v11h-4V10z"/></svg>
+          Dashboard
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">จัดการสินค้า</div>
+        <a href="products.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          สินค้าทั้งหมด
+        </a>
+        <a href="categories.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          หมวดหมู่สินค้า
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">คำสั่งซื้อ</div>
+        <a href="orders.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-5 8l2 2 4-4"/></svg>
+          รายการสั่งซื้อ
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ลูกค้า</div>
+        <a href="customers.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 10-3-6.65"/></svg>
+          ลูกค้าทั้งหมด
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">การตลาด</div>
+        <a href="promotions.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M3 11l8-8 9 9-8 8-9-9zM12 3h7a1 1 0 011 1v7"/></svg>
+          โปรโมชัน
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">รายงาน</div>
+        <a href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V9m4 8V5m4 12v-6M4 21h16a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+          รายงานยอดขาย
+        </a>
+      </div>
+      <div class="admin-nav-group" style="margin-top:14px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+        <a href="../../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          กลับหน้าเว็บไซต์
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h1>Dashboard</h1>
+        <div class="sub">ภาพรวมยอดขายและสถานะร้านค้าวันนี้</div>
+      </div>
+      <div class="admin-account">
+        <div class="account-avatar">A</div>
+        <div>
+          <div class="name">Admin ทดสอบ</div>
+          <div class="role">ผู้ดูแลระบบ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="kpi-grid" id="kpiGrid"></div>
+
+    <div class="two-col-panels">
+      <div class="admin-panel">
+        <div class="admin-panel-head">
+          <h3>คำสั่งซื้อล่าสุด</h3>
+          <a href="orders.html" class="icon-action" title="ดูทั้งหมด">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <table class="admin-table" id="recentOrdersTable">
+          <thead>
+            <tr><th>เลขที่คำสั่งซื้อ</th><th>ลูกค้า</th><th>วันที่</th><th>สถานะ</th><th>ยอดรวม</th><th></th></tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="admin-panel">
+        <div class="admin-panel-head">
+          <h3>สินค้าใกล้หมด</h3>
+          <a href="products.html" class="icon-action" title="ดูทั้งหมด">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div id="lowStockList"></div>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-panel-head">
+        <h3>ยอดขาย 7 วันล่าสุด</h3>
+      </div>
+      <div class="mini-bar-chart" id="salesChart"></div>
+    </div>
+  </main>
+</div>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+const orders = LH.getOrders();
+const totalOrders = orders.length;
+const totalSales = orders.reduce((sum, o) => sum + o.total, 0);
+const totalCustomers = 342;
+const lowStockProducts = PRODUCTS.filter(p => p.stock > 0 && p.stock < 5);
+
+const kpis = [
+  { label: 'คำสั่งซื้อทั้งหมด', value: totalOrders.toLocaleString('th-TH'), icon: 'gold', trend: 'up', pct: '+12.4%',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>' },
+  { label: 'ยอดขายรวม', value: formatTHB(totalSales), icon: 'green', trend: 'up', pct: '+8.1%',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V6m0 10v2m0-12a9 9 0 100 18 9 9 0 000-18z"/>' },
+  { label: 'ลูกค้าทั้งหมด', value: totalCustomers.toLocaleString('th-TH'), icon: 'blue', trend: 'up', pct: '+4.7%',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 10-3-6.65"/>' },
+  { label: 'สินค้าใกล้หมด', value: lowStockProducts.length.toLocaleString('th-TH'), icon: 'red', trend: 'down', pct: '-2.3%',
+    svg: '<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z"/>' },
+];
+
+document.getElementById('kpiGrid').innerHTML = kpis.map(k => `
+  <div class="kpi-card">
+    <div class="kpi-top">
+      <div class="kpi-icon ${k.icon}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${k.svg}</svg></div>
+      <span class="kpi-trend ${k.trend}">${k.pct}</span>
+    </div>
+    <div class="kpi-value">${k.value}</div>
+    <div class="kpi-label">${k.label}</div>
+  </div>
+`).join('');
+
+const fakeNames = ['คุณสมชาย ใจดี', 'คุณวรรณา ศรีสุข', 'คุณปิยะ วัฒนกุล', 'คุณนภัสสร ทองคำ', 'คุณธนกร รุ่งเรือง', 'คุณกมลชนก แสงจันทร์'];
+const tbody = document.querySelector('#recentOrdersTable tbody');
+tbody.innerHTML = orders.map((o, i) => `
+  <tr>
+    <td><strong>${o.no}</strong></td>
+    <td>${fakeNames[i % fakeNames.length]}</td>
+    <td>${LH.formatDate(o.date)}</td>
+    <td><span class="status-badge status-${o.status}">${LH.statusLabel(o.status)}</span></td>
+    <td>${formatTHB(o.total)}</td>
+    <td><a href="orders.html" class="icon-action" title="ดูรายละเอียด"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg></a></td>
+  </tr>
+`).join('');
+
+const lowStockEl = document.getElementById('lowStockList');
+if (lowStockProducts.length === 0) {
+  lowStockEl.innerHTML = '<div class="admin-empty">ไม่มีสินค้าใกล้หมดสต็อกในขณะนี้</div>';
+} else {
+  lowStockEl.innerHTML = lowStockProducts.slice(0, 8).map(p => {
+    const pct = Math.round((p.stock / 5) * 100);
+    const color = p.stock <= 2 ? 'var(--color-danger)' : 'var(--color-warn)';
+    return `
+    <div style="display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--color-line-soft);">
+      <img src="${p.img}" alt="${p.name}" style="width:42px;height:42px;object-fit:cover;border-radius:var(--radius-sm);flex-shrink:0;">
+      <div style="flex:1;min-width:0;">
+        <div style="font-size:13.5px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${p.name}</div>
+        <div style="font-size:11.5px;color:var(--color-ink-faint);">${p.sku}</div>
+      </div>
+      <div style="text-align:right;flex-shrink:0;">
+        <div class="stock-bar"><div class="stock-bar-fill" style="width:${pct}%;background:${color};"></div></div>
+        <span style="font-size:12.5px;color:${color};font-weight:600;">${p.stock} ชิ้น</span>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+const days = ['จันทร์', 'อังคาร', 'พุธ', 'พฤหัสฯ', 'ศุกร์', 'เสาร์', 'อาทิตย์'];
+const salesData = days.map(d => ({ d, v: Math.floor(Math.random() * 70) + 30 }));
+const maxV = Math.max(...salesData.map(s => s.v));
+document.getElementById('salesChart').innerHTML = salesData.map(s => `
+  <div class="mini-bar-col">
+    <div class="bar" style="height:${Math.round((s.v / maxV) * 100)}%;" title="${formatTHB(s.v * 1000)}"></div>
+    <div class="lbl">${s.d}</div>
+  </div>
+`).join('');
+</script>
+</body>
+</html>

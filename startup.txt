@@ -1,0 +1,239 @@
+==================================================
+ADDITIONAL REQUIRED SCOPE
+==================================================
+
+ตรวจสอบ Demo ทั้งหมดอีกครั้ง และต้องครอบคลุมองค์ประกอบหลัก
+ของเว็บไซต์ E-Commerce สำหรับธุรกิจของแต่งบ้านดังต่อไปนี้
+
+1. HOME PAGE
+ต้องมี:
+- Hero Banner / ภาพสินค้าแต่งบ้าน
+- สินค้าแนะนำ
+- สินค้าขายดี
+- หมวดหมู่สินค้า
+- โปรโมชั่น
+- New Arrivals
+- ช่องทางติดต่อ
+- LINE Contact
+- Footer
+
+2. PRODUCT CATEGORIES
+ต้องรองรับหมวดหมู่ เช่น:
+- Furniture / เฟอร์นิเจอร์
+- Home Decor / ของตกแต่งบ้าน
+- Lighting / โคมไฟ
+- Home & Living / ของใช้ในบ้าน
+- Garden & Outdoor / ของแต่งสวน
+- Other / สินค้าอื่น ๆ
+
+ให้ลูกค้าสามารถเลือกหมวดหมู่และดูสินค้าภายในหมวดนั้นได้
+
+3. PRODUCT DETAIL
+ต้องมี:
+- รูปภาพสินค้า
+- Gallery / รูปภาพหลายมุม
+- ชื่อสินค้า
+- ราคา
+- ราคาพิเศษ / โปรโมชั่น
+- รายละเอียดสินค้า
+- ขนาด
+- สี
+- วัสดุ
+- จำนวนสินค้า
+- Stock Status
+- Add to Cart
+- Buy Now
+- ปุ่มสอบถามผ่าน LINE
+- สินค้าที่เกี่ยวข้อง
+- Recommended Products
+
+4. SHOPPING CART / ORDER
+ต้องมี Concept ของ:
+- เพิ่มสินค้าเข้าตะกร้า
+- เพิ่ม / ลดจำนวนสินค้า
+- ลบสินค้า
+- Subtotal
+- Shipping
+- Discount
+- Grand Total
+
+Checkout ต้องรองรับ Concept:
+- ชื่อลูกค้า
+- เบอร์โทรศัพท์
+- Email
+- ที่อยู่จัดส่ง
+- จังหวัด / อำเภอ / ตำบล
+- รหัสไปรษณีย์
+- วิธีจัดส่ง
+- ช่องทางการชำระเงิน
+
+หลังสั่งซื้อ:
+- แสดงเลขที่คำสั่งซื้อ
+- Order Confirmation
+- สถานะคำสั่งซื้อ
+
+ตัวอย่างสถานะ:
+Pending Payment
+Paid
+Processing
+Shipping
+Completed
+Cancelled
+
+5. CUSTOMER ACCOUNT / MEMBER
+
+สร้าง Concept หน้า Member Account ด้วย
+
+ต้องมี:
+- Register
+- Login
+- Forgot Password
+- Profile
+- Customer Information
+- Address Book
+- Order History
+- Order Detail
+- Order Status
+- Logout
+
+6. ADMIN / BACK OFFICE CONCEPT
+
+ใน Demo ให้แสดง Concept ของระบบหลังบ้านด้วย
+ไม่จำเป็นต้องทำ Backend จริง
+
+Dashboard:
+- Total Orders
+- Total Sales
+- Total Customers
+- Products
+- Low Stock
+
+Product Management:
+- เพิ่มสินค้า
+- แก้ไขสินค้า
+- ลบสินค้า
+- จัดการรูปภาพ
+- ราคา
+- Stock
+- SKU
+- Product Status
+
+Category Management:
+- เพิ่ม / แก้ไข / ลบหมวดหมู่
+- จัดลำดับหมวดหมู่
+
+Promotion Management:
+- Discount
+- Sale Price
+- Coupon
+- Promotion Banner
+
+Order Management:
+- รายการสั่งซื้อ
+- ดูรายละเอียด Order
+- เปลี่ยนสถานะ Order
+- ตรวจสอบการชำระเงิน
+- ข้อมูลจัดส่ง
+
+Customer Management:
+- รายชื่อลูกค้า
+- ข้อมูลลูกค้า
+- ประวัติการสั่งซื้อ
+
+Reports:
+- ยอดขาย
+- จำนวนคำสั่งซื้อ
+- สินค้าขายดี
+- ลูกค้า
+- Stock เบื้องต้น
+
+7. CONTACT / CUSTOMER SERVICE
+
+ต้องมีช่องทางติดต่อ:
+- LINE Official Account
+- Telephone
+- Email
+- Social Media
+
+ควรมีปุ่ม LINE Contact ที่เห็นได้ง่าย
+โดยเฉพาะบน Mobile
+
+8. MOBILE RESPONSIVE
+
+ทุกหน้าต้องรองรับ:
+Desktop
+Tablet
+Mobile
+
+Mobile ต้อง:
+- ไม่มี Horizontal Scroll
+- Navigation เป็น Hamburger Menu
+- Cart ใช้งานง่าย
+- Product Grid เหมาะกับหน้าจอมือถือ
+- Checkout ใช้งานง่าย
+- ปุ่ม Add to Cart / Buy Now กดง่าย
+- LINE Contact เข้าถึงง่าย
+
+==================================================
+IMPORTANT FOR THIS DEMO
+==================================================
+
+นี่คือ "Concept Presentation"
+
+ดังนั้นไม่จำเป็นต้องสร้าง Backend จริง
+แต่ต้องออกแบบหน้าจอให้เห็นภาพว่า
+หากพัฒนาเป็นระบบจริง จะสามารถรองรับ Scope เหล่านี้ได้
+
+ต้องทำ Navigation / Prototype Flow ให้สามารถ Demo ได้:
+
+HOME
+↓
+CATEGORY
+↓
+PRODUCT LIST
+↓
+PRODUCT DETAIL
+↓
+ADD TO CART
+↓
+CART
+↓
+CHECKOUT
+↓
+ORDER CONFIRMATION
+
+และ:
+
+HOME
+↓
+LOGIN / REGISTER
+↓
+MY ACCOUNT
+↓
+ORDER HISTORY
+↓
+ORDER DETAIL
+
+และ:
+
+ADMIN DASHBOARD
+↓
+PRODUCT MANAGEMENT
+↓
+CATEGORY
+↓
+ORDER MANAGEMENT
+↓
+CUSTOMER
+↓
+PROMOTION
+↓
+REPORT
+
+อย่าแสดงรายละเอียดทางเทคนิค เช่น Database,
+API, Authentication Architecture หรือ Source Code
+ในหน้า Presentation
+
+เป้าหมายคือให้ลูกค้าเห็น "ภาพรวมของเว็บไซต์และระบบ"
+และสามารถใช้ Demo นี้เพื่อพูดคุย Requirement
+ก่อนประเมินราคาและพัฒนา Production จริง

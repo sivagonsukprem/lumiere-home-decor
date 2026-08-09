@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จัดการโปรโมชัน | LUMIÈRE ADMIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">LUMIÈRE<span>.</span> ADMIN</div>
+    <nav>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ภาพรวม</div>
+        <a href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7 3h4v11h-4V10z"/></svg>
+          Dashboard
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">จัดการสินค้า</div>
+        <a href="products.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          สินค้าทั้งหมด
+        </a>
+        <a href="categories.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          หมวดหมู่สินค้า
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">คำสั่งซื้อ</div>
+        <a href="orders.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-5 8l2 2 4-4"/></svg>
+          รายการสั่งซื้อ
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ลูกค้า</div>
+        <a href="customers.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 10-3-6.65"/></svg>
+          ลูกค้าทั้งหมด
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">การตลาด</div>
+        <a href="promotions.html" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M3 11l8-8 9 9-8 8-9-9zM12 3h7a1 1 0 011 1v7"/></svg>
+          โปรโมชัน
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">รายงาน</div>
+        <a href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V9m4 8V5m4 12v-6M4 21h16a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+          รายงานยอดขาย
+        </a>
+      </div>
+      <div class="admin-nav-group" style="margin-top:14px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+        <a href="../../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          กลับหน้าเว็บไซต์
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h1>จัดการโปรโมชัน</h1>
+        <div class="sub">ส่วนลด คูปอง และแบนเนอร์โปรโมชันบนหน้าเว็บไซต์</div>
+      </div>
+      <div class="admin-account">
+        <div class="account-avatar">A</div>
+        <div>
+          <div class="name">Admin ทดสอบ</div>
+          <div class="role">ผู้ดูแลระบบ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-panel-head">
+        <h3>โปรโมชันทั้งหมด</h3>
+        <button class="btn btn-primary btn-sm" id="openAddPromoModal">+ สร้างโปรโมชันใหม่</button>
+      </div>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ชื่อโปรโมชัน</th>
+            <th>ประเภท</th>
+            <th>ส่วนลด</th>
+            <th>Coupon Code</th>
+            <th>ระยะเวลา</th>
+            <th>สถานะ</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="promoTbody"></tbody>
+      </table>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-panel-head">
+        <h3>แบนเนอร์โปรโมชันบนหน้าเว็บ</h3>
+      </div>
+      <div class="split-banner" id="bannerGrid" style="grid-template-columns:repeat(3,1fr);"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="addPromoModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>สร้างโปรโมชันใหม่</h3>
+      <button class="modal-close" id="closeAddPromoModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <form id="addPromoForm">
+      <div class="form-field">
+        <label>ชื่อโปรโมชัน</label>
+        <input type="text" placeholder="เช่น ลดราคาส่งท้ายปี" required>
+      </div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label>ประเภท</label>
+          <select>
+            <option>ส่วนลด %</option>
+            <option>ส่วนลดบาท</option>
+            <option>Coupon Code</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label>มูลค่าส่วนลด</label>
+          <input type="text" placeholder="เช่น 15% หรือ 300 บาท">
+        </div>
+        <div class="form-field">
+          <label>วันเริ่มต้น</label>
+          <input type="date">
+        </div>
+        <div class="form-field">
+          <label>วันสิ้นสุด</label>
+          <input type="date">
+        </div>
+        <div class="form-field">
+          <label>Coupon Code</label>
+          <input type="text" placeholder="เช่น LUMIERE15">
+        </div>
+        <div class="form-field">
+          <label>สถานะ</label>
+          <select>
+            <option value="active">ใช้งานอยู่ (Active)</option>
+            <option value="scheduled">รอเริ่มใช้งาน (Scheduled)</option>
+            <option value="expired">หมดอายุ (Expired)</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline btn-sm" id="cancelAddPromoModal">ยกเลิก</button>
+        <button type="submit" class="btn btn-primary btn-sm">บันทึกโปรโมชัน</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+const promoStatusMap = {
+  active: { cls: 'status-completed', label: 'ใช้งานอยู่' },
+  scheduled: { cls: 'status-processing', label: 'รอเริ่มใช้งาน' },
+  expired: { cls: 'status-cancelled', label: 'หมดอายุ' },
+};
+
+const promotions = [
+  { name: 'ลดรับซัมเมอร์ 15%', type: 'ส่วนลด %', value: '15%', code: 'SUMMER15', start: '2026-06-01', end: '2026-08-31', status: 'active' },
+  { name: 'ลดทันที 500 บาท', type: 'ส่วนลดบาท', value: '฿500', code: 'SAVE500', start: '2026-07-15', end: '2026-08-15', status: 'active' },
+  { name: 'ต้อนรับสมาชิกใหม่', type: 'Coupon Code', value: '10%', code: 'WELCOME10', start: '2026-01-01', end: '2026-12-31', status: 'active' },
+  { name: 'โปรโมชันวันแม่', type: 'ส่วนลด %', value: '20%', code: 'MOM20', start: '2026-08-01', end: '2026-08-12', status: 'active' },
+  { name: 'Flash Sale ปลายปี', type: 'ส่วนลดบาท', value: '฿1,000', code: 'YEAREND1000', start: '2026-12-20', end: '2026-12-31', status: 'scheduled' },
+  { name: 'ลดต้อนรับปีใหม่', type: 'ส่วนลด %', value: '25%', code: 'NEWYEAR25', start: '2026-01-01', end: '2026-01-15', status: 'expired' },
+];
+
+function renderPromotions() {
+  document.getElementById('promoTbody').innerHTML = promotions.map((p, i) => {
+    const st = promoStatusMap[p.status];
+    return `
+    <tr data-idx="${i}">
+      <td><strong>${p.name}</strong></td>
+      <td>${p.type}</td>
+      <td>${p.value}</td>
+      <td><code style="background:var(--color-cream); padding:3px 8px; border-radius:4px; font-size:12px;">${p.code}</code></td>
+      <td>${LH.formatDate(p.start)} - ${LH.formatDate(p.end)}</td>
+      <td><span class="status-badge ${st.cls}">${st.label}</span></td>
+      <td>
+        <a class="icon-action" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+        <a class="icon-action btn-delete-promo" data-idx="${i}" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3M4 7h16"/></svg></a>
+      </td>
+    </tr>`;
+  }).join('');
+}
+renderPromotions();
+
+document.getElementById('promoTbody').addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-delete-promo');
+  if (!btn) return;
+  if (confirm('ยืนยันการลบโปรโมชันนี้หรือไม่?')) {
+    promotions.splice(Number(btn.dataset.idx), 1);
+    renderPromotions();
+    LH.toast('ลบโปรโมชันเรียบร้อยแล้ว (Demo)');
+  }
+});
+
+const banners = [
+  { eyebrow: 'PROMOTION', title: 'คอลเลกชันฤดูร้อน ลดสูงสุด 30%', img: 'https://picsum.photos/seed/promo-banner-1/700/440' },
+  { eyebrow: 'NEW ARRIVALS', title: 'ของแต่งบ้านมาใหม่ประจำเดือน', img: 'https://picsum.photos/seed/promo-banner-2/700/440' },
+  { eyebrow: 'MEMBER ONLY', title: 'สิทธิพิเศษสำหรับสมาชิก LUMIÈRE', img: 'https://picsum.photos/seed/promo-banner-3/700/440' },
+];
+
+document.getElementById('bannerGrid').innerHTML = banners.map((b, i) => `
+  <div>
+    <div class="banner-card" style="margin-bottom:14px;">
+      <img src="${b.img}" alt="${b.title}">
+      <div class="banner-content">
+        <span class="eyebrow" style="font-size:11px;">${b.eyebrow}</span>
+        <h3 style="font-size:19px;">${b.title}</h3>
+      </div>
+    </div>
+    <button class="btn btn-outline btn-sm edit-banner" data-idx="${i}" style="width:100%;">แก้ไขแบนเนอร์</button>
+  </div>
+`).join('');
+
+document.getElementById('bannerGrid').addEventListener('click', (e) => {
+  const btn = e.target.closest('.edit-banner');
+  if (!btn) return;
+  LH.toast('เปิดตัวแก้ไขแบนเนอร์ (Demo)');
+});
+
+const addPromoModal = document.getElementById('addPromoModal');
+document.getElementById('openAddPromoModal').addEventListener('click', () => addPromoModal.classList.add('show'));
+document.getElementById('closeAddPromoModal').addEventListener('click', () => addPromoModal.classList.remove('show'));
+document.getElementById('cancelAddPromoModal').addEventListener('click', () => addPromoModal.classList.remove('show'));
+addPromoModal.addEventListener('click', (e) => { if (e.target === addPromoModal) addPromoModal.classList.remove('show'); });
+document.getElementById('addPromoForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  addPromoModal.classList.remove('show');
+  e.target.reset();
+  LH.toast('สร้างโปรโมชันสำเร็จ (Demo)');
+});
+</script>
+</body>
+</html>

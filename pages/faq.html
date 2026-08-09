@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>คำถามที่พบบ่อย | LUMIÈRE HOME</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/style.css">
+<style>
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--color-line); }
+  .faq-q { display: flex; justify-content: space-between; align-items: center; padding: 22px 4px; cursor: pointer; font-family: var(--font-serif); font-size: 18px; font-weight: 600; }
+  .faq-q svg { width: 18px; height: 18px; flex-shrink: 0; transition: transform 0.25s var(--ease); color: var(--color-gold); }
+  .faq-item.open .faq-q svg { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s var(--ease); color: var(--color-ink-soft); font-size: 14.5px; line-height: 1.8; }
+  .faq-item.open .faq-a { max-height: 300px; }
+  .faq-a-inner { padding: 0 4px 22px; }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../index.html" class="logo">LUMIÈRE<span>.</span></a>
+    <nav class="main-nav">
+      <a href="../index.html">หน้าแรก</a>
+      <a href="shop/category.html">หมวดหมู่สินค้า</a>
+      <a href="shop/product-list.html">สินค้าทั้งหมด</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </nav>
+    <div class="header-actions">
+      <a href="account/login.html" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg></a>
+      <a href="shop/cart.html" class="icon-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg><span class="cart-count">0</span></a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<div class="mobile-drawer">
+  <div class="drawer-head"><span class="logo" style="font-size:20px;">LUMIÈRE<span>.</span></span><button class="drawer-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button></div>
+  <nav class="drawer-nav">
+    <a href="../index.html">หน้าแรก</a>
+    <a href="shop/product-list.html">สินค้าทั้งหมด</a>
+    <a href="account/login.html">บัญชีของฉัน</a>
+    <a href="contact.html">ติดต่อเรา</a>
+  </nav>
+</div>
+
+<div class="page-banner">
+  <div class="container">
+    <h1>คำถามที่พบบ่อย</h1>
+    <div class="breadcrumb"><a href="../index.html">หน้าแรก</a><span class="sep">/</span><span>คำถามที่พบบ่อย</span></div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="faq-list" id="faq-list"></div>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+
+<a href="https://line.me/" target="_blank" class="line-float"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg></a>
+
+<script src="../js/data.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/footer.js"></script>
+<script>
+const FAQS = [
+  { q: 'สั่งซื้อสินค้าอย่างไร?', a: 'เลือกสินค้าที่ต้องการ กด "เพิ่มลงตะกร้า" จากนั้นไปที่หน้าตะกร้าสินค้าเพื่อตรวจสอบรายการ แล้วกด "ดำเนินการชำระเงิน" กรอกข้อมูลจัดส่งและเลือกวิธีชำระเงินให้ครบถ้วน' },
+  { q: 'มีวิธีการชำระเงินแบบใดบ้าง?', a: 'รองรับการโอนผ่านธนาคาร, พร้อมเพย์ (สแกน QR Code), และบัตรเครดิต/เดบิต' },
+  { q: 'จัดส่งสินค้ากี่วัน?', a: 'โดยทั่วไปจัดส่งภายใน 3-7 วันทำการ ขึ้นอยู่กับพื้นที่ปลายทางและประเภทสินค้า (เฟอร์นิเจอร์ชิ้นใหญ่อาจใช้เวลานานกว่าปกติ)' },
+  { q: 'สามารถคืนหรือเปลี่ยนสินค้าได้หรือไม่?', a: 'สามารถแจ้งคืน/เปลี่ยนสินค้าได้ภายใน 7 วันหลังได้รับสินค้า โดยสินค้าต้องอยู่ในสภาพสมบูรณ์ พร้อมบรรจุภัณฑ์เดิม' },
+  { q: 'มีหน้าร้านให้ดูสินค้าจริงไหม?', a: 'มีโชว์รูมที่ถนนสุขุมวิท กรุงเทพฯ เปิดให้เข้าชมทุกวัน 9:00–20:00 น. แนะนำให้ทักแชทนัดหมายล่วงหน้า' },
+  { q: 'ติดตามสถานะคำสั่งซื้อได้ที่ไหน?', a: 'เข้าสู่ระบบและไปที่เมนู "ประวัติคำสั่งซื้อ" ในบัญชีของคุณ เพื่อดูสถานะล่าสุดแบบเรียลไทม์' },
+];
+document.getElementById('faq-list').innerHTML = FAQS.map((f, i) => `
+  <div class="faq-item ${i === 0 ? 'open' : ''}">
+    <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+      <span>${f.q}</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" d="M12 5v14M5 12h14"/></svg>
+    </div>
+    <div class="faq-a"><div class="faq-a-inner">${f.a}</div></div>
+  </div>`).join('');
+</script>
+</body>
+</html>

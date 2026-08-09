@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ชำระเงิน | LUMIÈRE HOME</title>
+<meta name="description" content="กรอกข้อมูลจัดส่งและชำระเงินเพื่อสั่งซื้อสินค้า">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div>จัดส่งฟรีทั่วประเทศ เมื่อสั่งซื้อครบ ฿1,500</div>
+    <div class="utility-links">
+      <a href="../account/orders.html">ติดตามคำสั่งซื้อ</a>
+      <a href="../contact.html">ช่วยเหลือ</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../../index.html" class="logo">LUMIÈRE<span>.</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html">หน้าแรก</a>
+      <a href="../shop/category.html">หมวดหมู่สินค้า</a>
+      <a href="../shop/product-list.html">สินค้าทั้งหมด</a>
+      <a href="../shop/product-list.html?filter=new">มาใหม่</a>
+      <a href="../shop/product-list.html?filter=sale">สินค้าลดราคา</a>
+      <a href="../contact.html">ติดต่อเรา</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../account/login.html" class="icon-btn" title="บัญชีของฉัน">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      </a>
+      <a href="../account/wishlist.html" class="icon-btn" title="รายการโปรด">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
+      </a>
+      <a href="../shop/cart.html" class="icon-btn" title="ตะกร้าสินค้า">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<div class="mobile-drawer">
+  <div class="drawer-head">
+    <span class="logo" style="font-size:20px;">LUMIÈRE<span>.</span></span>
+    <button class="drawer-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="../../index.html">หน้าแรก</a>
+    <a href="../shop/category.html">หมวดหมู่สินค้า</a>
+    <a href="../shop/product-list.html">สินค้าทั้งหมด</a>
+    <a href="../account/login.html">บัญชีของฉัน</a>
+    <a href="../shop/cart.html">ตะกร้าสินค้า</a>
+    <a href="../contact.html">ติดต่อเรา</a>
+  </nav>
+</div>
+
+<div class="container" style="padding-top:36px;">
+  <div class="checkout-steps">
+    <div class="checkout-step done">
+      <div class="circle">✓</div>
+      <div class="lbl">ตะกร้าสินค้า</div>
+    </div>
+    <div class="checkout-step-line"></div>
+    <div class="checkout-step active">
+      <div class="circle">2</div>
+      <div class="lbl">ข้อมูลจัดส่ง</div>
+    </div>
+    <div class="checkout-step-line"></div>
+    <div class="checkout-step">
+      <div class="circle">3</div>
+      <div class="lbl">ยืนยันคำสั่งซื้อ</div>
+    </div>
+  </div>
+</div>
+
+<section class="section-tight">
+  <div class="container">
+    <form id="checkout-form" class="checkout-layout">
+      <div class="checkout-left">
+
+        <div class="form-card">
+          <h3><span class="step-no">1</span> ข้อมูลผู้รับ</h3>
+          <div class="form-grid">
+            <div class="form-field">
+              <label>ชื่อ-นามสกุล</label>
+              <input type="text" name="fullname" required placeholder="เช่น สมชาย ใจดี">
+            </div>
+            <div class="form-field">
+              <label>เบอร์โทรศัพท์</label>
+              <input type="tel" name="phone" required pattern="[0-9]{9,10}" placeholder="08xxxxxxxx">
+            </div>
+            <div class="form-field full">
+              <label>Email</label>
+              <input type="email" name="email" required placeholder="you@email.com">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3><span class="step-no">2</span> ที่อยู่จัดส่ง</h3>
+          <div class="form-grid">
+            <div class="form-field full">
+              <label>ที่อยู่</label>
+              <textarea name="address" required placeholder="บ้านเลขที่ ซอย ถนน"></textarea>
+            </div>
+            <div class="form-field">
+              <label>จังหวัด</label>
+              <select name="province" required>
+                <option value="">เลือกจังหวัด</option>
+                <option>กรุงเทพมหานคร</option>
+                <option>นนทบุรี</option>
+                <option>ปทุมธานี</option>
+                <option>สมุทรปราการ</option>
+                <option>เชียงใหม่</option>
+                <option>ชลบุรี</option>
+                <option>ขอนแก่น</option>
+                <option>ภูเก็ต</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>อำเภอ/เขต</label>
+              <select name="district" required>
+                <option value="">เลือกอำเภอ/เขต</option>
+                <option>วัฒนา</option>
+                <option>คลองเตย</option>
+                <option>บางรัก</option>
+                <option>ปทุมวัน</option>
+                <option>ห้วยขวาง</option>
+                <option>ลาดพร้าว</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>ตำบล/แขวง</label>
+              <select name="subdistrict" required>
+                <option value="">เลือกตำบล/แขวง</option>
+                <option>คลองตันเหนือ</option>
+                <option>คลองเตย</option>
+                <option>สีลม</option>
+                <option>ลุมพินี</option>
+                <option>สามเสนนอก</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label>รหัสไปรษณีย์</label>
+              <input type="text" name="zipcode" required pattern="[0-9]{5}" placeholder="10110">
+            </div>
+            <div class="form-field full">
+              <label>หมายเหตุการจัดส่ง (ถ้ามี)</label>
+              <textarea name="note" placeholder="เช่น ฝากไว้ที่นิติบุคคล, โทรก่อนส่ง"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <h3><span class="step-no">3</span> วิธีการชำระเงิน</h3>
+          <div class="pay-methods">
+            <label class="pay-method" data-method="bank">
+              <input type="radio" name="payment" value="bank" required>
+              <span class="pm-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M4 21V9m16 12V9M3 9l9-6 9 6M6 9v0m12 0v0M9 21v-6h6v6"/></svg>
+              </span>
+              <span class="pm-name">โอนผ่านธนาคาร</span>
+              <span class="pm-desc">โอนแล้วแจ้งสลิปกับทีมงาน</span>
+            </label>
+            <label class="pay-method" data-method="qr">
+              <input type="radio" name="payment" value="qr" required>
+              <span class="pm-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z"/></svg>
+              </span>
+              <span class="pm-name">พร้อมเพย์ (QR)</span>
+              <span class="pm-desc">สแกนจ่ายผ่านแอปธนาคาร</span>
+            </label>
+            <label class="pay-method" data-method="card">
+              <input type="radio" name="payment" value="card" required>
+              <span class="pm-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path stroke-linecap="round" d="M2 10h20"/></svg>
+              </span>
+              <span class="pm-name">บัตรเครดิต/เดบิต</span>
+              <span class="pm-desc">VISA, Mastercard</span>
+            </label>
+          </div>
+
+          <div class="qr-box" id="qr-box">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=LUMIERE-DEMO-PAYMENT" alt="QR พร้อมเพย์">
+            <p style="font-size:13.5px; color:var(--color-ink-soft);">สแกน QR นี้ผ่านแอปธนาคารของคุณเพื่อชำระเงิน<br>(ตัวอย่างสำหรับการสาธิตเท่านั้น)</p>
+          </div>
+
+          <div id="card-fields" style="display:none; margin-top:16px;">
+            <div class="form-grid">
+              <div class="form-field full">
+                <label>หมายเลขบัตร</label>
+                <input type="text" name="cardnumber" placeholder="0000 0000 0000 0000" maxlength="19">
+              </div>
+              <div class="form-field">
+                <label>วันหมดอายุ</label>
+                <input type="text" name="cardexpiry" placeholder="MM/YY" maxlength="5">
+              </div>
+              <div class="form-field">
+                <label>CVV</label>
+                <input type="text" name="cardcvv" placeholder="123" maxlength="4">
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="checkout-right">
+        <div class="summary-card">
+          <h3>สรุปคำสั่งซื้อ</h3>
+          <div id="summary-items"></div>
+          <div class="summary-row">
+            <span>ยอดรวมสินค้า</span>
+            <span id="summary-subtotal">฿0</span>
+          </div>
+          <div class="summary-row">
+            <span>ค่าจัดส่ง</span>
+            <span id="summary-shipping">฿0</span>
+          </div>
+          <div class="summary-row total">
+            <span>ยอดรวมทั้งหมด</span>
+            <span class="val" id="summary-total">฿0</span>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">ยืนยันคำสั่งซื้อ</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+
+<a href="https://line.me/" target="_blank" class="line-float" title="แชทผ่าน LINE">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
+</a>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/footer.js"></script>
+<script>
+const cart = LH.getCart();
+if (cart.length === 0) {
+  window.location.href = '../shop/cart.html';
+}
+
+function renderSummary() {
+  const cart = LH.getCart();
+  const itemsHTML = cart.map(item => {
+    const p = getProductById(item.id);
+    if (!p) return '';
+    return `
+      <div style="display:flex; gap:12px; align-items:center; padding:10px 0; border-bottom:1px solid var(--color-line-soft);">
+        <img src="${p.img}" alt="${p.name}" style="width:52px; height:52px; object-fit:cover; border-radius:4px; flex-shrink:0;">
+        <div style="flex:1; min-width:0;">
+          <div style="font-size:13.5px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${p.name}</div>
+          <div style="font-size:12px; color:var(--color-ink-faint);">จำนวน ${item.qty}</div>
+        </div>
+        <div style="font-size:13.5px; font-weight:600; white-space:nowrap;">${formatTHB(p.price * item.qty)}</div>
+      </div>`;
+  }).join('');
+  document.getElementById('summary-items').innerHTML = itemsHTML;
+
+  const subtotal = LH.cartTotal();
+  const shipping = subtotal >= 1500 ? 0 : 150;
+  const total = subtotal + shipping;
+
+  document.getElementById('summary-subtotal').textContent = formatTHB(subtotal);
+  document.getElementById('summary-shipping').textContent = shipping === 0 ? 'ฟรี' : formatTHB(shipping);
+  document.getElementById('summary-total').textContent = formatTHB(total);
+
+  return total;
+}
+let currentTotal = renderSummary();
+
+document.querySelectorAll('.pay-method').forEach(el => {
+  el.addEventListener('click', () => {
+    document.querySelectorAll('.pay-method').forEach(m => m.classList.remove('selected'));
+    el.classList.add('selected');
+    const method = el.dataset.method;
+    document.getElementById('qr-box').classList.toggle('show', method === 'qr');
+    document.getElementById('card-fields').style.display = method === 'card' ? 'block' : 'none';
+    const cardInputs = document.querySelectorAll('#card-fields input');
+    cardInputs.forEach(i => i.required = method === 'card');
+  });
+});
+
+document.getElementById('checkout-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const cartSnapshot = LH.getCart();
+  const total = currentTotal;
+  const orderNo = LH.createOrder(cartSnapshot, total);
+  LH.clearCart();
+  window.location.href = 'order-confirmation.html?order=' + encodeURIComponent(orderNo);
+});
+</script>
+</body>
+</html>

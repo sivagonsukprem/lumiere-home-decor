@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>เข้าสู่ระบบ | LUMIÈRE HOME</title>
+<meta name="description" content="เข้าสู่ระบบเพื่อจัดการคำสั่งซื้อและบัญชีของคุณ">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+<div class="utility-bar">
+  <div class="container">
+    <div>จัดส่งฟรีทั่วประเทศ เมื่อสั่งซื้อครบ ฿1,500</div>
+    <div class="utility-links">
+      <a href="orders.html">ติดตามคำสั่งซื้อ</a>
+      <a href="../contact.html">ช่วยเหลือ</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="../../index.html" class="logo">LUMIÈRE<span>.</span></a>
+    <nav class="main-nav">
+      <a href="../../index.html">หน้าแรก</a>
+      <a href="../shop/category.html">หมวดหมู่สินค้า</a>
+      <a href="../shop/product-list.html">สินค้าทั้งหมด</a>
+      <a href="../shop/product-list.html?filter=new">มาใหม่</a>
+      <a href="../shop/product-list.html?filter=sale">สินค้าลดราคา</a>
+      <a href="../contact.html">ติดต่อเรา</a>
+    </nav>
+    <div class="header-actions">
+      <a href="login.html" class="icon-btn" title="บัญชีของฉัน">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+      </a>
+      <a href="wishlist.html" class="icon-btn" title="รายการโปรด">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
+      </a>
+      <a href="../shop/cart.html" class="icon-btn" title="ตะกร้าสินค้า">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+        <span class="cart-count">0</span>
+      </a>
+      <div class="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </div>
+</header>
+
+<div class="drawer-overlay"></div>
+<div class="mobile-drawer">
+  <div class="drawer-head">
+    <span class="logo" style="font-size:20px;">LUMIÈRE<span>.</span></span>
+    <button class="drawer-close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="../../index.html">หน้าแรก</a>
+    <a href="../shop/category.html">หมวดหมู่สินค้า</a>
+    <a href="../shop/product-list.html">สินค้าทั้งหมด</a>
+    <a href="login.html">บัญชีของฉัน</a>
+    <a href="../shop/cart.html">ตะกร้าสินค้า</a>
+    <a href="../contact.html">ติดต่อเรา</a>
+  </nav>
+</div>
+
+<div class="auth-wrap">
+  <div class="auth-card">
+    <span class="eyebrow">Welcome Back</span>
+    <h1>เข้าสู่ระบบ</h1>
+    <p class="sub">ยินดีต้อนรับกลับมา กรอกข้อมูลเพื่อเข้าสู่ระบบบัญชีของคุณ</p>
+
+    <form id="login-form">
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" name="email" required placeholder="you@email.com">
+      </div>
+      <div class="form-field">
+        <label>รหัสผ่าน</label>
+        <input type="password" name="password" required placeholder="••••••••">
+      </div>
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
+        <label class="form-check">
+          <input type="checkbox" name="remember">
+          จดจำฉันไว้
+        </label>
+        <a href="forgot-password.html" class="forgot-link">ลืมรหัสผ่าน?</a>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+    </form>
+
+    <div class="auth-divider">หรือ</div>
+
+    <button type="button" class="btn btn-line btn-block" onclick="LH.toast('ฟีเจอร์เข้าสู่ระบบด้วย LINE อยู่ระหว่างการพัฒนา')">
+      <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
+      เข้าสู่ระบบด้วย LINE
+    </button>
+
+    <div class="auth-foot">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></div>
+  </div>
+</div>
+
+<footer class="site-footer" id="site-footer-placeholder"></footer>
+
+<a href="https://line.me/" target="_blank" class="line-float" title="แชทผ่าน LINE">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
+</a>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script src="../../js/footer.js"></script>
+<script>
+document.getElementById('login-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = this.email.value.trim();
+  const name = email.split('@')[0];
+  LH.login(name, email);
+  LH.toast('เข้าสู่ระบบสำเร็จ');
+  setTimeout(() => { window.location.href = 'profile.html'; }, 500);
+});
+</script>
+</body>
+</html>

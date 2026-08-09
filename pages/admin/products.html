@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>จัดการสินค้า | LUMIÈRE ADMIN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css">
+</head>
+<body class="admin-body">
+
+<div class="admin-shell">
+  <aside class="admin-sidebar">
+    <div class="admin-logo">LUMIÈRE<span>.</span> ADMIN</div>
+    <nav>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ภาพรวม</div>
+        <a href="dashboard.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13h4v8H3v-8zm7-6h4v14h-4V7zm7 3h4v11h-4V10z"/></svg>
+          Dashboard
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">จัดการสินค้า</div>
+        <a href="products.html" class="active">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          สินค้าทั้งหมด
+        </a>
+        <a href="categories.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h7"/></svg>
+          หมวดหมู่สินค้า
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">คำสั่งซื้อ</div>
+        <a href="orders.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-5 8l2 2 4-4"/></svg>
+          รายการสั่งซื้อ
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">ลูกค้า</div>
+        <a href="customers.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87m5-3.13a4 4 0 100-8 4 4 0 000 8zm6 1a4 4 0 10-3-6.65"/></svg>
+          ลูกค้าทั้งหมด
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">การตลาด</div>
+        <a href="promotions.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M3 11l8-8 9 9-8 8-9-9zM12 3h7a1 1 0 011 1v7"/></svg>
+          โปรโมชัน
+        </a>
+      </div>
+      <div class="admin-nav-group">
+        <div class="admin-nav-title">รายงาน</div>
+        <a href="reports.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V9m4 8V5m4 12v-6M4 21h16a1 1 0 001-1V4a1 1 0 00-1-1H4a1 1 0 00-1 1v16a1 1 0 001 1z"/></svg>
+          รายงานยอดขาย
+        </a>
+      </div>
+      <div class="admin-nav-group" style="margin-top:14px; border-top:1px solid rgba(255,255,255,0.1); padding-top:10px;">
+        <a href="../../index.html">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          กลับหน้าเว็บไซต์
+        </a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="admin-main">
+    <div class="admin-topbar">
+      <div>
+        <h1>จัดการสินค้า</h1>
+        <div class="sub">รายการสินค้าทั้งหมดในร้าน — เพิ่ม แก้ไข หรือลบสินค้า</div>
+      </div>
+      <div class="admin-account">
+        <div class="account-avatar">A</div>
+        <div>
+          <div class="name">Admin ทดสอบ</div>
+          <div class="role">ผู้ดูแลระบบ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-panel">
+      <div class="admin-toolbar">
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35M19 11a8 8 0 11-16 0 8 8 0 0116 0z"/></svg>
+          <input type="text" id="searchInput" placeholder="ค้นหาชื่อสินค้า...">
+        </div>
+        <button class="btn btn-primary btn-sm" id="openAddModal">+ เพิ่มสินค้าใหม่</button>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th><input type="checkbox"></th>
+            <th>สินค้า</th>
+            <th>หมวดหมู่</th>
+            <th>ราคา</th>
+            <th>สต็อก</th>
+            <th>สถานะ</th>
+            <th>จัดการ</th>
+          </tr>
+        </thead>
+        <tbody id="productsTbody"></tbody>
+      </table>
+      <div class="admin-empty" id="emptyState" style="display:none;">ไม่พบสินค้าที่ค้นหา</div>
+      <div style="text-align:center; padding-top:18px; color:var(--color-ink-faint); font-size:12.5px;" id="countNote"></div>
+    </div>
+  </main>
+</div>
+
+<div class="modal-overlay" id="addModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3>เพิ่มสินค้าใหม่</h3>
+      <button class="modal-close" id="closeAddModal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <form id="addProductForm">
+      <div class="form-field">
+        <label>ชื่อสินค้า</label>
+        <input type="text" placeholder="เช่น โซฟาผ้าลินิน โทนดิน" required>
+      </div>
+      <div class="form-grid">
+        <div class="form-field">
+          <label>หมวดหมู่</label>
+          <select id="categorySelect"></select>
+        </div>
+        <div class="form-field">
+          <label>SKU</label>
+          <input type="text" placeholder="LH-0049">
+        </div>
+        <div class="form-field">
+          <label>ราคา (บาท)</label>
+          <input type="number" placeholder="0" required>
+        </div>
+        <div class="form-field">
+          <label>สต็อก</label>
+          <input type="number" placeholder="0" required>
+        </div>
+        <div class="form-field full">
+          <label>สถานะ</label>
+          <select>
+            <option value="active">พร้อมขาย (Active)</option>
+            <option value="inactive">ปิดการขาย (Inactive)</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field full">
+        <label>รูปภาพสินค้า</label>
+        <div class="drop-zone">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5"/></svg>
+          ลากไฟล์มาวาง หรือคลิกเพื่ออัปโหลด
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-outline btn-sm" id="cancelAddModal">ยกเลิก</button>
+        <button type="submit" class="btn btn-primary btn-sm">บันทึกสินค้า</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="../../js/data.js"></script>
+<script src="../../js/main.js"></script>
+<script>
+document.getElementById('categorySelect').innerHTML = CATEGORIES.map(c => `<option value="${c.id}">${c.th}</option>`).join('');
+
+function statusInfo(stock) {
+  if (stock === 0) return { cls: 'status-cancelled', label: 'หมดสต็อก' };
+  if (stock < 5) return { cls: 'status-pending', label: 'สต็อกต่ำ' };
+  return { cls: 'status-completed', label: 'พร้อมขาย' };
+}
+function stockColor(stock) {
+  if (stock === 0) return 'var(--color-danger)';
+  if (stock < 5) return 'var(--color-warn)';
+  return 'var(--color-success)';
+}
+
+const tbody = document.getElementById('productsTbody');
+const emptyState = document.getElementById('emptyState');
+const countNote = document.getElementById('countNote');
+
+function renderProducts(list) {
+  if (list.length === 0) {
+    tbody.innerHTML = '';
+    emptyState.style.display = 'block';
+    countNote.textContent = '';
+    return;
+  }
+  emptyState.style.display = 'none';
+  tbody.innerHTML = list.map(p => {
+    const st = statusInfo(p.stock);
+    const pct = Math.min(100, Math.round((p.stock / 20) * 100));
+    return `
+    <tr data-id="${p.id}">
+      <td><input type="checkbox"></td>
+      <td>
+        <div class="prod-cell">
+          <img src="${p.img}" alt="${p.name}">
+          <div>
+            <div>${p.name}</div>
+            <div style="font-size:11.5px;color:var(--color-ink-faint);">${p.sku}</div>
+          </div>
+        </div>
+      </td>
+      <td>${p.categoryTh}</td>
+      <td>${formatTHB(p.price)}</td>
+      <td>
+        <div class="stock-bar"><div class="stock-bar-fill" style="width:${pct}%;background:${stockColor(p.stock)};"></div></div>
+        ${p.stock}
+      </td>
+      <td><span class="status-badge ${st.cls}">${st.label}</span></td>
+      <td>
+        <a class="icon-action" title="แก้ไข"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg></a>
+        <a class="icon-action btn-delete" title="ลบ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3M4 7h16"/></svg></a>
+      </td>
+    </tr>`;
+  }).join('');
+  countNote.textContent = `แสดง ${list.length} รายการ จากทั้งหมด ${PRODUCTS.length} รายการ`;
+}
+
+renderProducts(PRODUCTS);
+
+document.getElementById('searchInput').addEventListener('input', (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(q) || p.sku.toLowerCase().includes(q));
+  renderProducts(filtered);
+});
+
+tbody.addEventListener('click', (e) => {
+  const btn = e.target.closest('.btn-delete');
+  if (!btn) return;
+  const row = btn.closest('tr');
+  if (confirm('ยืนยันการลบสินค้านี้หรือไม่?')) {
+    row.remove();
+    LH.toast('ลบสินค้าเรียบร้อยแล้ว (Demo)');
+  }
+});
+
+const addModal = document.getElementById('addModal');
+document.getElementById('openAddModal').addEventListener('click', () => addModal.classList.add('show'));
+document.getElementById('closeAddModal').addEventListener('click', () => addModal.classList.remove('show'));
+document.getElementById('cancelAddModal').addEventListener('click', () => addModal.classList.remove('show'));
+addModal.addEventListener('click', (e) => { if (e.target === addModal) addModal.classList.remove('show'); });
+document.getElementById('addProductForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  addModal.classList.remove('show');
+  e.target.reset();
+  LH.toast('เพิ่มสินค้าสำเร็จ (Demo)');
+});
+</script>
+</body>
+</html>
