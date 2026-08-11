@@ -43,6 +43,7 @@ const REAL_PHOTOS = {
   'เชิงเทียนทองเหลือง': 'assets/img/products/decor-brass-candlestick.jpg',
   'พรมทอมือลายเรขาคณิต': 'assets/img/products/decor-geometric-woven-rug-v2.jpg',
   'กระถางต้นไม้เซรามิก': 'assets/img/products/decor-ceramic-plant-pot.jpg',
+  'ชุดจานเซรามิกทำมือ': 'assets/img/products/decor-handmade-ceramic-dinnerware.jpg',
   'ถาดเสิร์ฟไม้โอ๊ค': 'assets/img/products/decor-oak-serving-tray.jpg',
   'ผ้าปูที่นอนลินินพาสเทล': 'assets/img/products/bedding-fitted-sheet-floral.jpg',
   'ผ้าคลุมเตียงลายปัก': 'assets/img/products/bedding-embroidered-throw.jpg',
