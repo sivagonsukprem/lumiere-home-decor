@@ -54,13 +54,27 @@ function hashStr(s) {
 
 const IMG = (seed, w = 800, h = 800) => placeholderSVG('🏺', seed, w, h);
 
+const CATEGORY_PHOTOS = {
+  glassware: 'assets/img/categories/glassware.jpg',
+  decor: 'assets/img/categories/decor.jpg',
+  lighting: 'assets/img/categories/lighting.jpg',
+  vases: 'assets/img/categories/vases.jpg',
+  bedding: 'assets/img/categories/bedding.jpg',
+  sleepwear: 'assets/img/categories/sleepwear.jpg',
+};
+
+function categoryImage(id, emoji) {
+  if (CATEGORY_PHOTOS[id]) return siteBase() + CATEGORY_PHOTOS[id];
+  return placeholderSVG(emoji, id + '-cat', 600, 800);
+}
+
 const CATEGORIES = [
-  { id: 'glassware', th: 'แก้วและถ้วย', en: 'Glassware', img: placeholderSVG('🥃', 'glassware-cat', 600, 800), count: 32 },
-  { id: 'decor', th: 'ของแต่งบ้าน', en: 'Home Decor', img: placeholderSVG('🏺', 'decor-cat', 600, 800), count: 40 },
-  { id: 'lighting', th: 'โคมไฟ', en: 'Lighting', img: placeholderSVG('💡', 'lighting-cat', 600, 800), count: 24 },
-  { id: 'vases', th: 'แจกัน', en: 'Vases', img: placeholderSVG('🌷', 'vases-cat', 600, 800), count: 20 },
-  { id: 'bedding', th: 'ผ้าปูที่นอน', en: 'Bedding', img: placeholderSVG('🛏️', 'bedding-cat', 600, 800), count: 22 },
-  { id: 'sleepwear', th: 'ชุดนอน', en: 'Sleepwear', img: placeholderSVG('🌙', 'sleepwear-cat', 600, 800), count: 18 },
+  { id: 'glassware', th: 'แก้วและถ้วย', en: 'Glassware', img: categoryImage('glassware', '🥃'), count: 32 },
+  { id: 'decor', th: 'ของแต่งบ้าน', en: 'Home Decor', img: categoryImage('decor', '🏺'), count: 40 },
+  { id: 'lighting', th: 'โคมไฟ', en: 'Lighting', img: categoryImage('lighting', '💡'), count: 24 },
+  { id: 'vases', th: 'แจกัน', en: 'Vases', img: categoryImage('vases', '🌷'), count: 20 },
+  { id: 'bedding', th: 'ผ้าปูที่นอน', en: 'Bedding', img: categoryImage('bedding', '🛏️'), count: 22 },
+  { id: 'sleepwear', th: 'ชุดนอน', en: 'Sleepwear', img: categoryImage('sleepwear', '🌙'), count: 18 },
 ];
 
 const PRODUCT_DEFS = {
