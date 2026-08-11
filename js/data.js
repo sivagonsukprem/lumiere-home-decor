@@ -37,6 +37,7 @@ const REAL_PHOTOS = {
   'ผ้าคลุมเตียงลายปัก': 'assets/img/products/bedding-embroidered-throw.jpg',
   'ปลอกหมอนผ้าฝ้ายออร์แกนิก': 'assets/img/products/bedding-organic-cotton-pillowcase.jpg',
   'ชุดผ้าปูที่นอนคอตตอน': 'assets/img/products/bedding-cotton-sheet-set.jpg',
+  'ผ้าปูที่นอนไหมเทียม': 'assets/img/products/bedding-silk-fitted-sheet.jpg',
   'เสื้อคลุมนอนผ้าฝ้าย': 'assets/img/products/sleepwear-cotton-robe.jpg',
   'ชุดนอนไหมเทียมคู่': 'assets/img/products/sleepwear-silk-robe.jpg',
   'ชุดนอนผ้าลินินบาง': 'assets/img/products/sleepwear-thin-linen-set.jpg',
