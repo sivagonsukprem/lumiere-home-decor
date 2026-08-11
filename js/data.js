@@ -29,6 +29,7 @@ const REAL_PHOTOS = {
   'แจกันเซรามิกลายมือ': 'assets/img/products/vase-handpainted-ceramic.jpg',
   'แจกันแก้วทรงหยดน้ำ': 'assets/img/products/vase-teardrop-glass.jpg',
   'แจกันดินเผาทรงเตี้ย': 'assets/img/products/vase-short-terracotta.jpg',
+  'โคมไฟตั้งพื้นทรงกลม': 'assets/img/products/lighting-round-globe-floor-lamp.jpg',
   'โคมไฟแขวนหวาย': 'assets/img/products/lighting-rattan-pendant-lamp.jpg',
   'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
   'โคมไฟระย้าจิ๋ว': 'assets/img/products/lighting-mini-chandelier.jpg',
