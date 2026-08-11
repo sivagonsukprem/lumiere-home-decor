@@ -2,41 +2,64 @@
    Bax Baxter Home Decor — Mock Data (Demo/Prototype only, no backend)
    ========================================================================== */
 
-const IMG = (seed, w = 800, h = 800) => `https://picsum.photos/seed/${seed}/${w}/${h}`;
+/* Product photography isn't available for this demo, so every image is a
+   generated SVG placeholder: a soft pastel background (per category) plus
+   an icon/emoji that hints at the product type. This keeps the whole site
+   visually coherent instead of pulling random, off-topic stock photos. */
+const PLACEHOLDER_PALETTE = ['#FBE8E6', '#FCEEEC', '#F6DCE0', '#F3E4E8', '#FDEDE9', '#F9E3DD'];
+
+function placeholderSVG(emoji, seed, w = 800, h = 800) {
+  const bg = PLACEHOLDER_PALETTE[Math.abs(hashStr(seed)) % PLACEHOLDER_PALETTE.length];
+  const fontSize = Math.round(Math.min(w, h) * 0.28);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+    <rect width="${w}" height="${h}" fill="${bg}"/>
+    <text x="50%" y="42%" font-size="${fontSize}" text-anchor="middle" dominant-baseline="central">${emoji}</text>
+  </svg>`;
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent(svg);
+}
+
+function hashStr(s) {
+  let h = 0;
+  for (let i = 0; i < s.length; i++) { h = (h << 5) - h + s.charCodeAt(i); h |= 0; }
+  return h;
+}
+
+const IMG = (seed, w = 800, h = 800) => placeholderSVG('🏺', seed, w, h);
 
 const CATEGORIES = [
-  { id: 'furniture', th: 'เฟอร์นิเจอร์', en: 'Furniture', img: IMG('furniture-cat', 600, 800), count: 48 },
-  { id: 'decor', th: 'ของแต่งบ้าน', en: 'Home Decor', img: IMG('decor-cat', 600, 800), count: 76 },
-  { id: 'lighting', th: 'โคมไฟ', en: 'Lighting', img: IMG('lighting-cat', 600, 800), count: 32 },
-  { id: 'living', th: 'ของใช้ในบ้าน', en: 'Home & Living', img: IMG('living-cat', 600, 800), count: 54 },
-  { id: 'garden', th: 'สวนและกลางแจ้ง', en: 'Garden & Outdoor', img: IMG('garden-cat', 600, 800), count: 21 },
-  { id: 'other', th: 'สินค้าอื่นๆ', en: 'Other', img: IMG('other-cat', 600, 800), count: 15 },
+  { id: 'glassware', th: 'แก้วและถ้วย', en: 'Glassware', img: placeholderSVG('🥃', 'glassware-cat', 600, 800), count: 32 },
+  { id: 'decor', th: 'ของแต่งบ้าน', en: 'Home Decor', img: placeholderSVG('🏺', 'decor-cat', 600, 800), count: 40 },
+  { id: 'lighting', th: 'โคมไฟ', en: 'Lighting', img: placeholderSVG('💡', 'lighting-cat', 600, 800), count: 24 },
+  { id: 'vases', th: 'แจกัน', en: 'Vases', img: placeholderSVG('🌷', 'vases-cat', 600, 800), count: 20 },
+  { id: 'bedding', th: 'ผ้าปูที่นอน', en: 'Bedding', img: placeholderSVG('🛏️', 'bedding-cat', 600, 800), count: 22 },
+  { id: 'sleepwear', th: 'ชุดนอน', en: 'Sleepwear', img: placeholderSVG('🌙', 'sleepwear-cat', 600, 800), count: 18 },
 ];
 
-const PRODUCT_NAMES = [
-  'โซฟาผ้าลินิน โทนดิน', 'โต๊ะกลางไม้โอ๊ค', 'เก้าอี้ทานอาหารหวาย', 'ตู้เก็บของไม้สัก',
-  'โคมไฟตั้งพื้นทรงกลม', 'โคมไฟแขวนหวาย', 'แจกันเซรามิกมินิมอล', 'กระจกเงาทรงโค้ง',
-  'พรมทอมือลายเรขาคณิต', 'หมอนอิงผ้าลินิน', 'ผ้าคลุมโซฟากำมะหยี่', 'ชั้นวางหนังสือไม้',
-  'เตียงไม้เนื้อแข็ง', 'ที่นอนออร์โธปิดิกส์', 'ม่านผ้าลินินธรรมชาติ', 'เชิงเทียนทองเหลือง',
-  'ถาดเสิร์ฟไม้โอ๊ค', 'ชุดจานเซรามิกทำมือ', 'กระถางต้นไม้เซรามิก', 'เก้าอี้โยกไม้',
-  'โต๊ะทำงานไม้เรียบหรู', 'ตู้ข้างเตียงมินิมอล', 'ราวแขวนเสื้อผ้าไม้', 'กรอบรูปไม้ธรรมชาติ',
-];
+const PRODUCT_DEFS = {
+  glassware: { emoji: '🥃', names: ['แก้วลายจุด Murano', 'แก้วไวน์ทรงหยดน้ำ', 'ถ้วยแก้วปากบาน', 'หลอดแก้วสีพาสเทล', 'แก้วน้ำลายหินอ่อน', 'ชุดแก้วช็อต 6 ใบ', 'แก้วมัคเซรามิกเคลือบ', 'ถ้วยชาแก้วใส'] },
+  decor: { emoji: '🏺', names: ['กระจกเงาทรงโค้ง', 'เชิงเทียนทองเหลือง', 'ถาดเสิร์ฟไม้โอ๊ค', 'กรอบรูปไม้ธรรมชาติ', 'ชุดจานเซรามิกทำมือ', 'พรมทอมือลายเรขาคณิต', 'หมอนอิงผ้าลินิน', 'กระถางต้นไม้เซรามิก'] },
+  lighting: { emoji: '💡', names: ['โคมไฟตั้งพื้นทรงกลม', 'โคมไฟแขวนหวาย', 'โคมไฟตั้งโต๊ะแก้วสี', 'โคมไฟราวผนัง', 'โคมไฟตั้งพื้นหินอ่อน', 'ไฟตกแต่งสายพาสเทล', 'โคมไฟระย้าจิ๋ว', 'โคมไฟตั้งโต๊ะเซรามิก'] },
+  vases: { emoji: '🌷', names: ['แจกันเซรามิกมินิมอล', 'แจกันแก้วลายจุด', 'แจกันดินเผาทรงเตี้ย', 'แจกันคอสูงลายหินอ่อน', 'แจกันเซรามิกพาสเทล', 'แจกันแก้วทรงหยดน้ำ', 'แจกันเซรามิกลายมือ', 'แจกันแก้วปากบาน'] },
+  bedding: { emoji: '🛏️', names: ['ผ้าปูที่นอนลินินพาสเทล', 'ปลอกหมอนผ้าฝ้ายออร์แกนิก', 'ผ้าห่มนุ่มลายพิมพ์', 'ผ้าคลุมเตียงลายปัก', 'ชุดผ้าปูที่นอนคอตตอน', 'ผ้าห่มขนแกะเทียม', 'ปลอกผ้านวมลินิน', 'ผ้าปูที่นอนไหมเทียม'] },
+  sleepwear: { emoji: '🌙', names: ['ชุดนอนผ้าซาตินพาสเทล', 'เสื้อคลุมนอนผ้าฝ้าย', 'ชุดนอนแขนกุดลายลูกไม้', 'ชุดนอนไหมเทียมคู่', 'เสื้อคลุมอาบน้ำนุ่ม', 'ชุดนอนผ้าลินินบาง', 'ชุดนอนแขนยาวฤดูหนาว', 'ชุดนอนผ้าไหมพรีเมียม'] },
+};
 
 function generateProducts() {
   const products = [];
   let id = 1;
   CATEGORIES.forEach((cat) => {
+    const def = PRODUCT_DEFS[cat.id];
     const perCat = 8;
     for (let i = 0; i < perCat; i++) {
-      const nameIdx = (id - 1) % PRODUCT_NAMES.length;
-      const price = Math.floor(Math.random() * 18000) + 990;
+      const name = def.names[i % def.names.length];
+      const price = Math.floor(Math.random() * 4000) + 290;
       const hasSale = Math.random() > 0.6;
       const oldPrice = hasSale ? Math.floor(price * (1.15 + Math.random() * 0.3)) : null;
       const stock = Math.random() > 0.15 ? Math.floor(Math.random() * 40) : 0;
       products.push({
         id: id,
-        sku: `LH-${String(id).padStart(4, '0')}`,
-        name: PRODUCT_NAMES[nameIdx],
+        sku: `BB-${String(id).padStart(4, '0')}`,
+        name: name,
         category: cat.id,
         categoryTh: cat.th,
         price: price,
@@ -45,16 +68,22 @@ function generateProducts() {
         reviews: Math.floor(Math.random() * 180) + 3,
         stock: stock,
         isNew: Math.random() > 0.75,
-        img: IMG('product-' + id, 800, 800),
-        gallery: [IMG('product-' + id, 800, 800), IMG('product-' + id + '-b', 800, 800), IMG('product-' + id + '-c', 800, 800), IMG('product-' + id + '-d', 800, 800), IMG('product-' + id + '-e', 800, 800)],
-        colors: ['#3F3527', '#A8874F', '#E6DFD3', '#1C1917'],
+        img: placeholderSVG(def.emoji, 'product-' + id, 800, 800),
+        gallery: [
+          placeholderSVG(def.emoji, 'product-' + id, 800, 800),
+          placeholderSVG(def.emoji, 'product-' + id + '-b', 800, 800),
+          placeholderSVG(def.emoji, 'product-' + id + '-c', 800, 800),
+          placeholderSVG(def.emoji, 'product-' + id + '-d', 800, 800),
+          placeholderSVG(def.emoji, 'product-' + id + '-e', 800, 800),
+        ],
+        colors: ['#D98089', '#E8A0A6', '#F0D9D6', '#6B4A52'],
         sizes: ['S', 'M', 'L'],
-        desc: 'ชิ้นงานคัดสรรวัสดุคุณภาพสูง ออกแบบเพื่อความเรียบง่ายแต่หรูหรา เหมาะกับการตกแต่งบ้านสไตล์โมเดิร์นมินิมอล ทนทาน ใช้งานได้ยาวนาน ผลิตจากวัสดุธรรมชาติที่เป็นมิตรต่อสิ่งแวดล้อม',
-        material: 'ไม้โอ๊คแท้ / ผ้าลินิน',
-        dimension: '120 x 60 x 75 ซม.',
-        weight: '18 กก.',
-        origin: 'ผลิตในประเทศไทย',
-        warranty: 'รับประกัน 2 ปี',
+        desc: 'ชิ้นงานคัดสรรวัสดุคุณภาพสูง ออกแบบเพื่อความเรียบง่ายแต่หรูหรา เหมาะกับการตกแต่งบ้านโทนพาสเทลอบอุ่น ทนทาน ใช้งานได้ยาวนาน ผลิตจากวัสดุคุณภาพดีที่เป็นมิตรต่อสิ่งแวดล้อม',
+        material: 'แก้ว / เซรามิก / ผ้าฝ้ายธรรมชาติ',
+        dimension: 'ขนาดมาตรฐาน (ดูรายละเอียดต่อชิ้น)',
+        weight: '0.3 - 1.5 กก.',
+        origin: 'นำเข้า / ผลิตในประเทศไทย',
+        warranty: 'รับประกันความเสียหายจากการผลิต 30 วัน',
       });
       id++;
     }

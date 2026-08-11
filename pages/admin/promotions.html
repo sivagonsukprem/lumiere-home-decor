@@ -218,16 +218,16 @@ document.getElementById('promoTbody').addEventListener('click', (e) => {
 });
 
 const banners = [
-  { eyebrow: 'PROMOTION', title: 'คอลเลกชันฤดูร้อน ลดสูงสุด 30%', img: 'https://picsum.photos/seed/promo-banner-1/700/440' },
-  { eyebrow: 'NEW ARRIVALS', title: 'ของแต่งบ้านมาใหม่ประจำเดือน', img: 'https://picsum.photos/seed/promo-banner-2/700/440' },
-  { eyebrow: 'MEMBER ONLY', title: 'สิทธิพิเศษสำหรับสมาชิก Bax Baxter Home Decor', img: 'https://picsum.photos/seed/promo-banner-3/700/440' },
+  { eyebrow: 'PROMOTION', title: 'คอลเลกชันฤดูร้อน ลดสูงสุด 30%', emoji: '🥃', bg: 'linear-gradient(135deg,#F6DCE0 0%,#FBE8E6 100%)' },
+  { eyebrow: 'NEW ARRIVALS', title: 'ของแต่งบ้านมาใหม่ประจำเดือน', emoji: '🌷', bg: 'linear-gradient(135deg,#FCEEEC 0%,#F0D9D6 100%)' },
+  { eyebrow: 'MEMBER ONLY', title: 'สิทธิพิเศษสำหรับสมาชิก Bax Baxter Home Decor', emoji: '💡', bg: 'linear-gradient(135deg,#F3E4E8 0%,#F6DCE0 100%)' },
 ];
 
 document.getElementById('bannerGrid').innerHTML = banners.map((b, i) => `
   <div>
-    <div class="banner-card" style="margin-bottom:14px;">
-      <img src="${b.img}" alt="${b.title}">
-      <div class="banner-content">
+    <div class="banner-card banner-card-gradient" style="margin-bottom:14px;background:${b.bg};">
+      <span class="banner-emoji">${b.emoji}</span>
+      <div class="banner-content banner-content-light">
         <span class="eyebrow" style="font-size:11px;">${b.eyebrow}</span>
         <h3 style="font-size:19px;">${b.title}</h3>
       </div>
