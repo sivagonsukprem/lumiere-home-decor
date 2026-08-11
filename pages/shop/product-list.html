@@ -49,9 +49,9 @@
     <nav class="main-nav">
       <a href="../../index.html">หน้าแรก</a>
       <a href="category.html">หมวดหมู่สินค้า</a>
-      <a href="product-list.html" class="active">สินค้าทั้งหมด</a>
-      <a href="product-list.html?filter=new">มาใหม่</a>
-      <a href="product-list.html?filter=sale">สินค้าลดราคา</a>
+      <a href="product-list.html" id="nav-all">สินค้าทั้งหมด</a>
+      <a href="product-list.html?filter=new" id="nav-new">มาใหม่</a>
+      <a href="product-list.html?filter=sale" id="nav-sale">สินค้าลดราคา</a>
       <a href="../contact.html">ติดต่อเรา</a>
     </nav>
     <div class="header-actions">
@@ -207,6 +207,9 @@ function productCard(p) {
 const params = new URLSearchParams(window.location.search);
 const initialCat = params.get('cat');
 const initialFilter = params.get('filter');
+
+const navActiveId = initialFilter === 'new' ? 'nav-new' : initialFilter === 'sale' ? 'nav-sale' : 'nav-all';
+document.getElementById(navActiveId).classList.add('active');
 
 const PAGE_SIZE = 12;
 let currentPage = 1;
