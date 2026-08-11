@@ -27,6 +27,7 @@ const REAL_PHOTOS = {
   'ถ้วยชาแก้วใส': 'assets/img/products/glassware-clear-tea-cup.jpg',
   'แจกันแก้วลายจุด': 'assets/img/products/vase-speckled-glass.jpg',
   'แจกันเซรามิกลายมือ': 'assets/img/products/vase-handpainted-ceramic.jpg',
+  'แจกันแก้วปากบาน': 'assets/img/products/vase-flared-glass.jpg',
   'แจกันแก้วทรงหยดน้ำ': 'assets/img/products/vase-teardrop-glass.jpg',
   'แจกันดินเผาทรงเตี้ย': 'assets/img/products/vase-short-terracotta.jpg',
   'โคมไฟตั้งพื้นทรงกลม': 'assets/img/products/lighting-round-globe-floor-lamp.jpg',
