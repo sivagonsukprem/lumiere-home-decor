@@ -29,14 +29,19 @@ const REAL_PHOTOS = {
   'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
   'หมอนอิงผ้าลินิน': 'assets/img/products/decor-linen-throw-pillow.jpg',
   'กรอบรูปไม้ธรรมชาติ': 'assets/img/products/decor-wooden-photo-frame.jpg',
-  'พรมทอมือลายเรขาคณิต': 'assets/img/products/decor-geometric-woven-rug.jpg',
+  'พรมทอมือลายเรขาคณิต': 'assets/img/products/decor-geometric-woven-rug-v2.jpg',
   'กระถางต้นไม้เซรามิก': 'assets/img/products/decor-ceramic-plant-pot.jpg',
+  'ถาดเสิร์ฟไม้โอ๊ค': 'assets/img/products/decor-oak-serving-tray.jpg',
   'ผ้าปูที่นอนลินินพาสเทล': 'assets/img/products/bedding-fitted-sheet-floral.jpg',
   'ผ้าคลุมเตียงลายปัก': 'assets/img/products/bedding-embroidered-throw.jpg',
+  'ปลอกหมอนผ้าฝ้ายออร์แกนิก': 'assets/img/products/bedding-organic-cotton-pillowcase.jpg',
+  'ชุดผ้าปูที่นอนคอตตอน': 'assets/img/products/bedding-cotton-sheet-set.jpg',
   'ชุดนอนไหมเทียมคู่': 'assets/img/products/sleepwear-silk-robe.jpg',
   'ชุดนอนผ้าลินินบาง': 'assets/img/products/sleepwear-thin-linen-set.jpg',
   'ชุดนอนแขนกุดลายลูกไม้': 'assets/img/products/sleepwear-lace-corset-set.jpg',
+  'ชุดนอนแขนยาวฤดูหนาว': 'assets/img/products/sleepwear-winter-longsleeve-set.jpg',
   'โคมไฟตั้งพื้นหินอ่อน': 'assets/img/products/lighting-floral-ceramic-lamp.jpg',
+  'โคมไฟราวผนัง': 'assets/img/products/lighting-wall-track-lamp.jpg',
 };
 
 function productImage(name, emoji, seed, w, h) {
