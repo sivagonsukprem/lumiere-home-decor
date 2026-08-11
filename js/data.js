@@ -25,6 +25,7 @@ const REAL_PHOTOS = {
   'ชุดแก้วช็อต 6 ใบ': 'assets/img/products/glassware-shot-glass-set.jpg',
   'แก้วมัคเซรามิกเคลือบ': 'assets/img/products/glassware-glazed-ceramic-mug.jpg',
   'ถ้วยชาแก้วใส': 'assets/img/products/glassware-clear-tea-cup.jpg',
+  'แจกันเซรามิกมินิมอล': 'assets/img/products/vase-minimal-ceramic.jpg',
   'แจกันแก้วลายจุด': 'assets/img/products/vase-speckled-glass.jpg',
   'แจกันเซรามิกลายมือ': 'assets/img/products/vase-handpainted-ceramic.jpg',
   'แจกันแก้วปากบาน': 'assets/img/products/vase-flared-glass.jpg',
