@@ -2,11 +2,39 @@
    Bax Baxter Home Decor — Mock Data (Demo/Prototype only, no backend)
    ========================================================================== */
 
-/* Product photography isn't available for this demo, so every image is a
-   generated SVG placeholder: a soft pastel background (per category) plus
-   an icon/emoji that hints at the product type. This keeps the whole site
-   visually coherent instead of pulling random, off-topic stock photos. */
+/* Product photography isn't available for most items in this demo, so most
+   images are a generated SVG placeholder: a soft pastel background (per
+   category) plus an icon/emoji that hints at the product type. A handful of
+   real product photos supplied by the client (keyed by exact product name
+   below) override the placeholder where available. */
 const PLACEHOLDER_PALETTE = ['#FBE8E6', '#FCEEEC', '#F6DCE0', '#F3E4E8', '#FDEDE9', '#F9E3DD'];
+
+function siteBase() {
+  var path = window.location.pathname;
+  var depth = (path.match(/\/pages\//) ? path.split('/pages/')[1].split('/').length - 1 : -1);
+  if (depth < 0) return '';
+  return '../'.repeat(depth + 1);
+}
+
+const REAL_PHOTOS = {
+  'แก้วลายจุด Murano': 'assets/img/products/glassware-murano-glass.jpg',
+  'ถ้วยแก้วปากบาน': 'assets/img/products/glassware-flared-cup.jpg',
+  'แจกันแก้วลายจุด': 'assets/img/products/vase-speckled-glass.jpg',
+  'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
+  'หมอนอิงผ้าลินิน': 'assets/img/products/decor-linen-throw-pillow.jpg',
+  'กรอบรูปไม้ธรรมชาติ': 'assets/img/products/decor-wooden-photo-frame.jpg',
+  'ผ้าปูที่นอนลินินพาสเทล': 'assets/img/products/bedding-fitted-sheet-floral.jpg',
+  'ผ้าคลุมเตียงลายปัก': 'assets/img/products/bedding-embroidered-throw.jpg',
+  'ชุดนอนไหมเทียมคู่': 'assets/img/products/sleepwear-silk-robe.jpg',
+  'ชุดนอนผ้าลินินบาง': 'assets/img/products/sleepwear-thin-linen-set.jpg',
+  'ชุดนอนแขนกุดลายลูกไม้': 'assets/img/products/sleepwear-lace-corset-set.jpg',
+  'โคมไฟตั้งพื้นหินอ่อน': 'assets/img/products/lighting-floral-ceramic-lamp.jpg',
+};
+
+function productImage(name, emoji, seed, w, h) {
+  if (REAL_PHOTOS[name]) return siteBase() + REAL_PHOTOS[name];
+  return placeholderSVG(emoji, seed, w, h);
+}
 
 function placeholderSVG(emoji, seed, w = 800, h = 800) {
   const bg = PLACEHOLDER_PALETTE[Math.abs(hashStr(seed)) % PLACEHOLDER_PALETTE.length];
@@ -68,14 +96,16 @@ function generateProducts() {
         reviews: Math.floor(Math.random() * 180) + 3,
         stock: stock,
         isNew: Math.random() > 0.75,
-        img: placeholderSVG(def.emoji, 'product-' + id, 800, 800),
-        gallery: [
-          placeholderSVG(def.emoji, 'product-' + id, 800, 800),
-          placeholderSVG(def.emoji, 'product-' + id + '-b', 800, 800),
-          placeholderSVG(def.emoji, 'product-' + id + '-c', 800, 800),
-          placeholderSVG(def.emoji, 'product-' + id + '-d', 800, 800),
-          placeholderSVG(def.emoji, 'product-' + id + '-e', 800, 800),
-        ],
+        img: productImage(name, def.emoji, 'product-' + id, 800, 800),
+        gallery: REAL_PHOTOS[name]
+          ? [productImage(name, def.emoji, 'product-' + id, 800, 800)]
+          : [
+              placeholderSVG(def.emoji, 'product-' + id, 800, 800),
+              placeholderSVG(def.emoji, 'product-' + id + '-b', 800, 800),
+              placeholderSVG(def.emoji, 'product-' + id + '-c', 800, 800),
+              placeholderSVG(def.emoji, 'product-' + id + '-d', 800, 800),
+              placeholderSVG(def.emoji, 'product-' + id + '-e', 800, 800),
+            ],
         colors: ['#D98089', '#E8A0A6', '#F0D9D6', '#6B4A52'],
         sizes: ['S', 'M', 'L'],
         desc: 'ชิ้นงานคัดสรรวัสดุคุณภาพสูง ออกแบบเพื่อความเรียบง่ายแต่หรูหรา เหมาะกับการตกแต่งบ้านโทนพาสเทลอบอุ่น ทนทาน ใช้งานได้ยาวนาน ผลิตจากวัสดุคุณภาพดีที่เป็นมิตรต่อสิ่งแวดล้อม',
