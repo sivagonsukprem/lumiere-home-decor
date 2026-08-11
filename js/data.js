@@ -32,6 +32,7 @@ const REAL_PHOTOS = {
   'โคมไฟแขวนหวาย': 'assets/img/products/lighting-rattan-pendant-lamp.jpg',
   'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
   'โคมไฟระย้าจิ๋ว': 'assets/img/products/lighting-mini-chandelier.jpg',
+  'โคมไฟตั้งโต๊ะเซรามิก': 'assets/img/products/lighting-ceramic-table-lamp.jpg',
   'หมอนอิงผ้าลินิน': 'assets/img/products/decor-linen-throw-pillow.jpg',
   'กรอบรูปไม้ธรรมชาติ': 'assets/img/products/decor-wooden-photo-frame.jpg',
   'กระจกเงาทรงโค้ง': 'assets/img/products/decor-curved-mirror.jpg',
