@@ -29,6 +29,8 @@ const REAL_PHOTOS = {
   'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
   'หมอนอิงผ้าลินิน': 'assets/img/products/decor-linen-throw-pillow.jpg',
   'กรอบรูปไม้ธรรมชาติ': 'assets/img/products/decor-wooden-photo-frame.jpg',
+  'พรมทอมือลายเรขาคณิต': 'assets/img/products/decor-geometric-woven-rug.jpg',
+  'กระถางต้นไม้เซรามิก': 'assets/img/products/decor-ceramic-plant-pot.jpg',
   'ผ้าปูที่นอนลินินพาสเทล': 'assets/img/products/bedding-fitted-sheet-floral.jpg',
   'ผ้าคลุมเตียงลายปัก': 'assets/img/products/bedding-embroidered-throw.jpg',
   'ชุดนอนไหมเทียมคู่': 'assets/img/products/sleepwear-silk-robe.jpg',
