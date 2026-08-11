@@ -18,7 +18,13 @@ function siteBase() {
 
 const REAL_PHOTOS = {
   'แก้วลายจุด Murano': 'assets/img/products/glassware-murano-glass.jpg',
+  'แก้วไวน์ทรงหยดน้ำ': 'assets/img/products/glassware-teardrop-wine-glass.jpg',
   'ถ้วยแก้วปากบาน': 'assets/img/products/glassware-flared-cup.jpg',
+  'หลอดแก้วสีพาสเทล': 'assets/img/products/glassware-pastel-glass-straws.jpg',
+  'แก้วน้ำลายหินอ่อน': 'assets/img/products/glassware-speckled-marble-mug.jpg',
+  'ชุดแก้วช็อต 6 ใบ': 'assets/img/products/glassware-shot-glass-set.jpg',
+  'แก้วมัคเซรามิกเคลือบ': 'assets/img/products/glassware-glazed-ceramic-mug.jpg',
+  'ถ้วยชาแก้วใส': 'assets/img/products/glassware-clear-tea-cup.jpg',
   'แจกันแก้วลายจุด': 'assets/img/products/vase-speckled-glass.jpg',
   'โคมไฟตั้งโต๊ะแก้วสี': 'assets/img/products/lighting-colored-glass-table-lamp.jpg',
   'หมอนอิงผ้าลินิน': 'assets/img/products/decor-linen-throw-pillow.jpg',
