@@ -179,8 +179,37 @@ function getRelatedProducts(product, count = 4) {
   return PRODUCTS.filter(p => p.category === product.category && p.id !== product.id).slice(0, count);
 }
 
+/* Currency switcher — all product prices are stored in THB in PRODUCTS.
+   CURRENCIES holds a fixed demo exchange rate per currency; formatPrice()
+   converts + formats using whichever currency is saved in localStorage. */
+const CURRENCIES = {
+  THB: { symbol: '฿', rate: 1, locale: 'th-TH', decimals: 0 },
+  USD: { symbol: '$', rate: 0.027, locale: 'en-US', decimals: 2 },
+  EUR: { symbol: '€', rate: 0.025, locale: 'en-US', decimals: 2 },
+  CNY: { symbol: '¥', rate: 0.196, locale: 'en-US', decimals: 2 },
+};
+const CURRENCY_KEY = 'lh_currency';
+
+function getCurrency() {
+  const saved = localStorage.getItem(CURRENCY_KEY);
+  return CURRENCIES[saved] ? saved : 'THB';
+}
+
+function setCurrency(code) {
+  if (!CURRENCIES[code]) return;
+  localStorage.setItem(CURRENCY_KEY, code);
+}
+
+function formatPrice(n) {
+  const code = getCurrency();
+  const c = CURRENCIES[code];
+  const converted = Number(n) * c.rate;
+  const formatted = converted.toLocaleString(c.locale, { minimumFractionDigits: c.decimals, maximumFractionDigits: c.decimals });
+  return c.symbol + formatted;
+}
+
 function formatTHB(n) {
-  return '฿' + Number(n).toLocaleString('th-TH');
+  return formatPrice(n);
 }
 
 function renderStars(rating) {
