@@ -72,8 +72,8 @@
 
 <div class="page-banner">
   <div class="container">
-    <h1>รายการโปรด</h1>
-    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span>รายการโปรด</span></div>
+    <h1 data-i18n="page_title_wishlist">รายการโปรด</h1>
+    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span data-i18n="page_title_wishlist">รายการโปรด</span></div>
   </div>
 </div>
 
@@ -83,13 +83,13 @@
 
     <div class="account-content">
       <div class="dash-card">
-        <h3>สินค้าที่บันทึกไว้</h3>
+        <h3 data-i18n="wishlist_saved_title">สินค้าที่บันทึกไว้</h3>
         <div class="product-grid" id="wishlist-grid"></div>
         <div class="wishlist-empty" id="wishlist-empty" style="display:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
-          <h3 style="margin-bottom:10px;">ยังไม่มีสินค้าในรายการโปรด</h3>
-          <p>กดหัวใจที่สินค้าที่คุณสนใจ เพื่อบันทึกไว้ดูภายหลัง</p>
-          <a href="../shop/product-list.html" class="btn btn-primary">เลือกช้อปสินค้า</a>
+          <h3 style="margin-bottom:10px;" data-i18n="wishlist_empty_title">ยังไม่มีสินค้าในรายการโปรด</h3>
+          <p data-i18n="wishlist_empty_text2">กดหัวใจที่สินค้าที่คุณสนใจ เพื่อบันทึกไว้ดูภายหลัง</p>
+          <a href="../shop/product-list.html" class="btn btn-primary" data-i18n="wishlist_shop_now">เลือกช้อปสินค้า</a>
         </div>
       </div>
     </div>
@@ -117,10 +117,10 @@ function productCard(p) {
     <div class="product-thumb">
       ${p.isNew ? '<span class="product-tag new">New</span>' : (p.oldPrice ? '<span class="product-tag sale">Sale</span>' : '')}
       <div class="product-quick-actions">
-        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); renderWishlist();" title="เพิ่มรายการโปรด">
+        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); renderWishlist();" title="${t('add_wishlist')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
         </button>
-        <a href="../shop/product-detail.html?id=${p.id}" class="qa-btn" title="ดูรายละเอียด">
+        <a href="../shop/product-detail.html?id=${p.id}" class="qa-btn" title="${t('view_details')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </a>
       </div>
@@ -135,7 +135,7 @@ function productCard(p) {
         ${p.oldPrice ? `<span class="price-old">${formatTHB(p.oldPrice)}</span>` : ''}
       </div>
       <button class="product-add" ${p.stock === 0 ? 'disabled' : ''} onclick="LH.addToCart(${p.id}, 1, {})">
-        ${p.stock === 0 ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}
+        ${p.stock === 0 ? t('out_of_stock') : t('add_to_cart')}
       </button>
     </div>
   </div>`;

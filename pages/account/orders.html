@@ -79,8 +79,8 @@
 
 <div class="page-banner">
   <div class="container">
-    <h1>ประวัติคำสั่งซื้อ</h1>
-    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span>ประวัติคำสั่งซื้อ</span></div>
+    <h1 data-i18n="page_title_orders">ประวัติคำสั่งซื้อ</h1>
+    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span data-i18n="breadcrumb_orders">ประวัติคำสั่งซื้อ</span></div>
   </div>
 </div>
 
@@ -90,20 +90,20 @@
 
     <div class="account-content">
       <div class="dash-card">
-        <h3>คำสั่งซื้อของฉัน</h3>
+        <h3 data-i18n="orders_my_title">คำสั่งซื้อของฉัน</h3>
 
         <div class="order-filter-tabs" id="filter-tabs">
-          <button data-status="all" class="active">ทั้งหมด</button>
-          <button data-status="pending">รอชำระเงิน</button>
-          <button data-status="paid">ชำระเงินแล้ว</button>
-          <button data-status="processing">กำลังเตรียมสินค้า</button>
-          <button data-status="shipping">จัดส่งแล้ว</button>
-          <button data-status="completed">สำเร็จ</button>
-          <button data-status="cancelled">ยกเลิก</button>
+          <button data-status="all" class="active" data-i18n="orders_filter_all">ทั้งหมด</button>
+          <button data-status="pending" data-i18n="order_status_pending">รอชำระเงิน</button>
+          <button data-status="paid" data-i18n="order_status_paid">ชำระเงินแล้ว</button>
+          <button data-status="processing" data-i18n="order_status_processing">กำลังเตรียมสินค้า</button>
+          <button data-status="shipping" data-i18n="order_status_shipping">จัดส่งแล้ว</button>
+          <button data-status="completed" data-i18n="order_status_completed">สำเร็จ</button>
+          <button data-status="cancelled" data-i18n="order_status_cancelled">ยกเลิก</button>
         </div>
 
         <div id="orders-list"></div>
-        <div class="orders-empty" id="orders-empty" style="display:none;">ไม่พบคำสั่งซื้อในหมวดนี้</div>
+        <div class="orders-empty" id="orders-empty" style="display:none;" data-i18n="orders_empty_filtered">ไม่พบคำสั่งซื้อในหมวดนี้</div>
       </div>
     </div>
   </div>
@@ -143,7 +143,7 @@ function renderOrders(filter) {
       <div class="oh-date">${LH.formatDate(o.date)}</div>
       <span class="status-badge status-${o.status}">${LH.statusLabel(o.status)}</span>
       <div>${formatTHB(o.total)}</div>
-      <div class="oh-actions"><a href="order-detail.html?order=${encodeURIComponent(o.no)}">ดูรายละเอียด</a></div>
+      <div class="oh-actions"><a href="order-detail.html?order=${encodeURIComponent(o.no)}">${t('orders_view_detail')}</a></div>
     </div>
   `).join('');
 }

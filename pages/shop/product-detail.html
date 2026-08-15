@@ -83,9 +83,9 @@
 <div class="container" id="not-found-wrap" style="display:none;">
   <div class="not-found-state">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
-    <h2>ไม่พบสินค้าที่คุณค้นหา</h2>
-    <p>สินค้าชิ้นนี้อาจถูกลบหรือไม่มีอยู่ในระบบ กรุณาเลือกดูสินค้าอื่นของเรา</p>
-    <a href="product-list.html" class="btn btn-primary">กลับไปหน้าสินค้าทั้งหมด</a>
+    <h2 data-i18n="pd_not_found_title">ไม่พบสินค้าที่คุณค้นหา</h2>
+    <p data-i18n="pd_not_found_text">สินค้าชิ้นนี้อาจถูกลบหรือไม่มีอยู่ในระบบ กรุณาเลือกดูสินค้าอื่นของเรา</p>
+    <a href="product-list.html" class="btn btn-primary" data-i18n="pd_not_found_btn">กลับไปหน้าสินค้าทั้งหมด</a>
   </div>
 </div>
 
@@ -109,10 +109,10 @@ function productCard(p) {
     <div class="product-thumb">
       ${p.isNew ? '<span class="product-tag new">New</span>' : (p.oldPrice ? '<span class="product-tag sale">Sale</span>' : '')}
       <div class="product-quick-actions">
-        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); this.classList.toggle('active');" title="เพิ่มรายการโปรด">
+        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); this.classList.toggle('active');" title="${t('add_wishlist')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
         </button>
-        <a href="product-detail.html?id=${p.id}" class="qa-btn" title="ดูรายละเอียด">
+        <a href="product-detail.html?id=${p.id}" class="qa-btn" title="${t('view_details')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </a>
       </div>
@@ -127,7 +127,7 @@ function productCard(p) {
         ${p.oldPrice ? `<span class="price-old">${formatTHB(p.oldPrice)}</span>` : ''}
       </div>
       <button class="product-add" ${p.stock === 0 ? 'disabled' : ''} onclick="LH.addToCart(${p.id}, 1, {})">
-        ${p.stock === 0 ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}
+        ${p.stock === 0 ? t('out_of_stock') : t('add_to_cart')}
       </button>
     </div>
   </div>`;
@@ -139,19 +139,19 @@ const product = getProductById(productId);
 
 if (!product) {
   document.getElementById('not-found-wrap').style.display = 'block';
-  document.getElementById('pd-breadcrumb').innerHTML = `<a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span>ไม่พบสินค้า</span>`;
+  document.getElementById('pd-breadcrumb').innerHTML = `<a href="../../index.html">${t('nav_home')}</a><span class="sep">/</span><span>${t('pd_not_found_title')}</span>`;
 } else {
   document.title = product.name + ' | Bax Baxter Home Decor';
   const cat = CATEGORIES.find(c => c.id === product.category);
 
   document.getElementById('pd-breadcrumb').innerHTML = `
-    <a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span>
+    <a href="../../index.html">${t('nav_home')}</a><span class="sep">/</span>
     <a href="product-list.html?cat=${product.category}">${cat ? cat.th : product.categoryTh}</a><span class="sep">/</span>
     <span>${product.name}</span>`;
 
   const discountPct = product.oldPrice ? Math.round((1 - product.price / product.oldPrice) * 100) : 0;
   const stockClass = product.stock === 0 ? 'out-stock' : (product.stock <= 5 ? 'low-stock' : 'in-stock');
-  const stockLabel = product.stock === 0 ? 'สินค้าหมด' : (product.stock <= 5 ? `เหลือเพียง ${product.stock} ชิ้น` : 'พร้อมส่ง');
+  const stockLabel = product.stock === 0 ? t('pd_out_stock') : (product.stock <= 5 ? t('pd_stock_left', { n: product.stock }) : t('pd_ready_ship'));
 
   const reviewsMock = [
     { name: 'คุณปิยะดา ส.', date: '28 ก.ค. 2569', rating: 5, text: 'สินค้าคุณภาพดีมากค่ะ วัสดุแน่นหนา สีสวยตรงตามรูป จัดส่งไวมาก แพ็คสินค้ามาอย่างดีไม่มีตำหนิ ประทับใจสุดๆ จะกลับมาซื้อซ้ำแน่นอน' },
@@ -176,25 +176,25 @@ if (!product) {
           <h1>${product.name}</h1>
           <div class="product-rating">
             <span class="stars">${renderStars(product.rating)}</span>
-            <span class="review-count">${product.rating} · (${product.reviews} รีวิว)</span>
+            <span class="review-count">${product.rating} · (${t('pd_reviews_count', { n: product.reviews })})</span>
           </div>
 
           <div class="pd-price-row">
             <span class="price-now">${formatTHB(product.price)}</span>
-            ${product.oldPrice ? `<span class="price-old">${formatTHB(product.oldPrice)}</span><span class="pd-save-badge">ประหยัด ${discountPct}%</span>` : ''}
+            ${product.oldPrice ? `<span class="price-old">${formatTHB(product.oldPrice)}</span><span class="pd-save-badge">${t('pd_save_pct', { n: discountPct })}</span>` : ''}
           </div>
 
           <p class="pd-desc">${product.desc}</p>
 
           <div class="pd-option-group">
-            <label class="title">สี</label>
+            <label class="title">${t('pd_color_label')}</label>
             <div class="option-pills" id="pd-colors">
               ${product.colors.map((c, i) => `<span class="pd-color-swatch ${i === 0 ? 'selected' : ''}" data-color="${c}" style="background:${c};" title="${c}"></span>`).join('')}
             </div>
           </div>
 
           <div class="pd-option-group">
-            <label class="title">ขนาด</label>
+            <label class="title">${t('pd_size_label')}</label>
             <div class="option-pills" id="pd-sizes">
               ${product.sizes.map((s, i) => `<span class="pill ${i === 0 ? 'selected' : ''}" data-size="${s}">${s}</span>`).join('')}
             </div>
@@ -206,7 +206,7 @@ if (!product) {
           </div>
 
           <div class="pd-option-group" style="margin-bottom:0;">
-            <label class="title">จำนวน</label>
+            <label class="title">${t('pd_qty_label')}</label>
             <div class="qty-stepper">
               <button id="qty-minus" type="button">−</button>
               <input type="number" id="qty-input" value="1" min="1" max="${Math.max(product.stock, 1)}">
@@ -215,46 +215,46 @@ if (!product) {
           </div>
 
           <div class="pd-actions">
-            <button class="btn btn-outline" id="btn-add-cart" ${product.stock === 0 ? 'disabled' : ''}>เพิ่มลงตะกร้า</button>
-            <button class="btn btn-primary" id="btn-buy-now" ${product.stock === 0 ? 'disabled' : ''}>ซื้อเลย</button>
-            <button class="pd-wishlist-btn" id="btn-wishlist" title="เพิ่มรายการโปรด">
+            <button class="btn btn-outline" id="btn-add-cart" ${product.stock === 0 ? 'disabled' : ''}>${t('add_to_cart')}</button>
+            <button class="btn btn-primary" id="btn-buy-now" ${product.stock === 0 ? 'disabled' : ''}>${t('buy_now')}</button>
+            <button class="pd-wishlist-btn" id="btn-wishlist" title="${t('add_wishlist')}">
               <svg viewBox="0 0 24 24" fill="${LH.isWishlisted(product.id) ? 'currentColor' : 'none'}" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
             </button>
           </div>
 
           <div class="pd-line-ask">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
-            <span>มีคำถามเกี่ยวกับสินค้า? <a href="https://line.me/" target="_blank">สอบถามเพิ่มเติมผ่าน LINE</a></span>
+            <span>${t('pd_ask_question')} <a href="https://line.me/" target="_blank">${t('pd_ask_line')}</a></span>
           </div>
 
           <div style="margin-top:24px; padding-top:20px; border-top:1px solid var(--color-line);">
-            <div class="pd-line-meta"><b>รหัสสินค้า</b><span>${product.sku}</span></div>
-            <div class="pd-line-meta"><b>วัสดุ</b><span>${product.material}</span></div>
-            <div class="pd-line-meta"><b>ขนาด</b><span>${product.dimension}</span></div>
-            <div class="pd-line-meta"><b>น้ำหนัก</b><span>${product.weight}</span></div>
-            <div class="pd-line-meta"><b>แหล่งผลิต</b><span>${product.origin}</span></div>
-            <div class="pd-line-meta"><b>การรับประกัน</b><span>${product.warranty}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_sku')}</b><span>${product.sku}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_material')}</b><span>${product.material}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_dimension')}</b><span>${product.dimension}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_weight')}</b><span>${product.weight}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_origin')}</b><span>${product.origin}</span></div>
+            <div class="pd-line-meta"><b>${t('pd_warranty')}</b><span>${product.warranty}</span></div>
           </div>
         </div>
       </div>
 
       <div class="pd-tabs">
         <div class="pd-tab-nav">
-          <button class="pd-tab-btn active" data-tab="desc">รายละเอียดสินค้า</button>
-          <button class="pd-tab-btn" data-tab="spec">ข้อมูลจำเพาะ</button>
-          <button class="pd-tab-btn" data-tab="reviews">รีวิว (${product.reviews})</button>
+          <button class="pd-tab-btn active" data-tab="desc">${t('pd_description_tab')}</button>
+          <button class="pd-tab-btn" data-tab="spec">${t('pd_specs_tab')}</button>
+          <button class="pd-tab-btn" data-tab="reviews">${t('pd_reviews_tab_count', { n: product.reviews })}</button>
         </div>
         <div class="pd-tab-panel active" id="tab-desc">
           <p>${product.desc}</p>
         </div>
         <div class="pd-tab-panel" id="tab-spec">
           <table class="spec-table">
-            <tr><td>รหัสสินค้า</td><td>${product.sku}</td></tr>
-            <tr><td>วัสดุ</td><td>${product.material}</td></tr>
-            <tr><td>ขนาด</td><td>${product.dimension}</td></tr>
-            <tr><td>น้ำหนัก</td><td>${product.weight}</td></tr>
-            <tr><td>แหล่งผลิต</td><td>${product.origin}</td></tr>
-            <tr><td>การรับประกัน</td><td>${product.warranty}</td></tr>
+            <tr><td>${t('pd_sku')}</td><td>${product.sku}</td></tr>
+            <tr><td>${t('pd_material')}</td><td>${product.material}</td></tr>
+            <tr><td>${t('pd_dimension')}</td><td>${product.dimension}</td></tr>
+            <tr><td>${t('pd_weight')}</td><td>${product.weight}</td></tr>
+            <tr><td>${t('pd_origin')}</td><td>${product.origin}</td></tr>
+            <tr><td>${t('pd_warranty')}</td><td>${product.warranty}</td></tr>
           </table>
         </div>
         <div class="pd-tab-panel" id="tab-reviews">
@@ -273,7 +273,7 @@ if (!product) {
       <div class="related-section">
         <div class="section-head left">
           <span class="eyebrow">You May Also Like</span>
-          <h2>สินค้าที่เกี่ยวข้อง</h2>
+          <h2>${t('pd_related_title')}</h2>
         </div>
         <div class="product-grid" id="related-grid"></div>
       </div>

@@ -73,9 +73,9 @@
 <div class="page-banner">
   <div class="container">
     <div class="breadcrumb">
-      <a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span>ตะกร้าสินค้า</span>
+      <a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span data-i18n="breadcrumb_cart">ตะกร้าสินค้า</span>
     </div>
-    <h1>ตะกร้าสินค้า</h1>
+    <h1 data-i18n="page_title_cart">ตะกร้าสินค้า</h1>
   </div>
 </div>
 
@@ -111,9 +111,9 @@ function renderCart() {
     container.innerHTML = `
       <div class="cart-empty">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-        <h3>ตะกร้าของคุณว่างเปล่า</h3>
-        <p>ยังไม่มีสินค้าในตะกร้า เลือกช้อปสินค้าที่คุณชื่นชอบได้เลย</p>
-        <a href="product-list.html" class="btn btn-primary">เลือกซื้อสินค้า</a>
+        <h3>${t('cart_empty_title')}</h3>
+        <p>${t('cart_empty_text')}</p>
+        <a href="product-list.html" class="btn btn-primary">${t('cart_shop_now')}</a>
       </div>`;
     return;
   }
@@ -127,8 +127,8 @@ function renderCart() {
   const optionsText = (opt) => {
     if (!opt) return '';
     const parts = [];
-    if (opt.color) parts.push(`สี: ${opt.color}`);
-    if (opt.size) parts.push(`ขนาด: ${opt.size}`);
+    if (opt.color) parts.push(`${t('cart_opt_color')}: ${opt.color}`);
+    if (opt.size) parts.push(`${t('cart_opt_size')}: ${opt.size}`);
     return parts.join(' · ');
   };
 
@@ -136,10 +136,10 @@ function renderCart() {
     <div class="cart-layout">
       <div class="cart-table">
         <div class="cart-table-head">
-          <div>สินค้า</div>
-          <div>ราคา/ชิ้น</div>
-          <div>จำนวน</div>
-          <div>รวม</div>
+          <div>${t('cart_col_product')}</div>
+          <div>${t('cart_col_price')}</div>
+          <div>${t('cart_col_qty')}</div>
+          <div>${t('cart_col_total')}</div>
           <div></div>
         </div>
         ${items.map(({ ci, p }) => `
@@ -158,25 +158,25 @@ function renderCart() {
               <button type="button" class="qty-inc">+</button>
             </div>
             <div>${formatTHB(p.price * ci.qty)}</div>
-            <button class="cart-remove" data-id="${p.id}" data-options='${JSON.stringify(ci.options || {})}' title="ลบสินค้า">
+            <button class="cart-remove" data-id="${p.id}" data-options='${JSON.stringify(ci.options || {})}' title="${t('cart_remove_title')}">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
           </div>`).join('')}
       </div>
 
       <div class="summary-card">
-        <h3>สรุปรายการสั่งซื้อ</h3>
-        <div class="summary-row"><span>ยอดรวมสินค้า</span><span>${formatTHB(subtotal)}</span></div>
-        <div class="summary-row"><span>ค่าจัดส่ง</span><span>${shipping === 0 ? 'ฟรี' : formatTHB(shipping)}</span></div>
-        ${appliedCoupon ? `<div class="summary-row"><span>ส่วนลดคูปอง (10%)</span><span>-${formatTHB(discount)}</span></div>` : ''}
+        <h3>${t('cart_summary_title')}</h3>
+        <div class="summary-row"><span>${t('cart_subtotal')}</span><span>${formatTHB(subtotal)}</span></div>
+        <div class="summary-row"><span>${t('cart_shipping')}</span><span>${shipping === 0 ? t('cart_free') : formatTHB(shipping)}</span></div>
+        ${appliedCoupon ? `<div class="summary-row"><span>${t('cart_coupon_discount')}</span><span>-${formatTHB(discount)}</span></div>` : ''}
         <div class="coupon-row">
-          <input type="text" id="coupon-input" placeholder="รหัสคูปอง" ${appliedCoupon ? 'disabled value="' + COUPON_CODE + '"' : ''}>
-          <button class="btn btn-outline btn-sm" id="coupon-btn" ${appliedCoupon ? 'disabled' : ''}>${appliedCoupon ? 'ใช้แล้ว' : 'ใช้คูปอง'}</button>
+          <input type="text" id="coupon-input" placeholder="${t('cart_coupon_placeholder')}" ${appliedCoupon ? 'disabled value="' + COUPON_CODE + '"' : ''}>
+          <button class="btn btn-outline btn-sm" id="coupon-btn" ${appliedCoupon ? 'disabled' : ''}>${appliedCoupon ? t('cart_coupon_applied') : t('cart_coupon_apply')}</button>
         </div>
         <div id="coupon-msg"></div>
-        <div class="summary-row total"><span>ยอดชำระทั้งหมด</span><span class="val">${formatTHB(grandTotal)}</span></div>
-        <a href="../checkout/checkout.html" class="btn btn-primary btn-block" style="margin-top:20px;">ดำเนินการชำระเงิน</a>
-        <a href="product-list.html" class="btn btn-outline btn-block" style="margin-top:12px;">เลือกซื้อสินค้าเพิ่ม</a>
+        <div class="summary-row total"><span>${t('cart_grand_total')}</span><span class="val">${formatTHB(grandTotal)}</span></div>
+        <a href="../checkout/checkout.html" class="btn btn-primary btn-block" style="margin-top:20px;">${t('cart_checkout_btn')}</a>
+        <a href="product-list.html" class="btn btn-outline btn-block" style="margin-top:12px;">${t('cart_continue_shopping')}</a>
       </div>
     </div>`;
 
@@ -216,7 +216,7 @@ function renderCart() {
       const id = Number(btn.dataset.id);
       const options = JSON.parse(btn.dataset.options);
       LH.removeFromCart(id, options);
-      LH.toast('ลบสินค้าออกจากตะกร้าแล้ว', 'success');
+      LH.toast(t('cart_remove_toast'), 'success');
       renderCart();
     });
   });
@@ -228,12 +228,12 @@ function renderCart() {
       const msgEl = document.getElementById('coupon-msg');
       if (val === COUPON_CODE) {
         appliedCoupon = true;
-        LH.toast('ใช้คูปองสำเร็จ', 'success');
+        LH.toast(t('cart_coupon_success'), 'success');
         renderCart();
       } else if (val === '') {
-        msgEl.innerHTML = '<div class="coupon-msg err">กรุณากรอกรหัสคูปอง</div>';
+        msgEl.innerHTML = `<div class="coupon-msg err">${t('cart_coupon_empty_err')}</div>`;
       } else {
-        msgEl.innerHTML = '<div class="coupon-msg err">รหัสคูปองไม่ถูกต้อง</div>';
+        msgEl.innerHTML = `<div class="coupon-msg err">${t('cart_coupon_invalid_err')}</div>`;
       }
     });
   }

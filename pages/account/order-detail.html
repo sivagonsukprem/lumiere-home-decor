@@ -91,8 +91,8 @@
 
 <div class="page-banner">
   <div class="container">
-    <h1>รายละเอียดคำสั่งซื้อ</h1>
-    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><a href="orders.html">ประวัติคำสั่งซื้อ</a><span class="sep">/</span><span id="bc-orderno">—</span></div>
+    <h1 data-i18n="page_title_order_detail">รายละเอียดคำสั่งซื้อ</h1>
+    <div class="breadcrumb"><a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><a href="orders.html" data-i18n="breadcrumb_orders">ประวัติคำสั่งซื้อ</a><span class="sep">/</span><span id="bc-orderno">—</span></div>
   </div>
 </div>
 
@@ -128,9 +128,9 @@ if (orderNo) document.getElementById('bc-orderno').textContent = orderNo;
 if (!order) {
   contentEl.innerHTML = `
     <div class="dash-card od-empty">
-      <h3 style="margin-bottom:10px;">ไม่พบคำสั่งซื้อนี้</h3>
-      <p style="color:var(--color-ink-soft); margin-bottom:26px;">ตรวจสอบหมายเลขคำสั่งซื้ออีกครั้ง หรือกลับไปดูประวัติคำสั่งซื้อทั้งหมด</p>
-      <a href="orders.html" class="btn btn-primary">กลับไปประวัติคำสั่งซื้อ</a>
+      <h3 style="margin-bottom:10px;">${t('od_not_found_title')}</h3>
+      <p style="color:var(--color-ink-soft); margin-bottom:26px;">${t('od_not_found_text')}</p>
+      <a href="orders.html" class="btn btn-primary">${t('od_back_to_orders')}</a>
     </div>`;
 } else {
   const checkIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>';
@@ -148,7 +148,7 @@ if (!order) {
 
   const shippingBlock = `
     <div class="dash-card">
-      <h3>ที่อยู่จัดส่ง</h3>
+      <h3>${t('od_shipping_address')}</h3>
       <div style="font-size:14px; color:var(--color-ink-soft); line-height:1.9;">
         <div style="color:var(--color-ink); font-weight:600; margin-bottom:4px;">สมชาย ใจดี · 089-123-4567</div>
         123/45 ซอยสุขุมวิท 21 ถนนสุขุมวิท แขวงคลองตันเหนือ<br>
@@ -158,45 +158,45 @@ if (!order) {
 
   const itemsBlock = `
     <div class="dash-card">
-      <h3>รายการสินค้า</h3>
+      <h3>${t('od_items')}</h3>
       ${lineItems.map(li => `
         <div class="od-line-item">
           <img src="${li.p.img}" alt="${li.p.name}">
           <div>
             <div class="n">${li.p.name}</div>
-            <div class="q">จำนวน ${li.qty}</div>
+            <div class="q">${t('od_qty_label', { n: li.qty })}</div>
           </div>
           <div class="p">${formatTHB(li.p.price * li.qty)}</div>
         </div>
       `).join('')}
-      <div class="summary-row" style="padding-top:18px;"><span>ยอดรวมสินค้า</span><span>${formatTHB(subtotal)}</span></div>
-      <div class="summary-row"><span>ค่าจัดส่ง</span><span>${shipping <= 0 ? 'ฟรี' : formatTHB(shipping)}</span></div>
-      <div class="summary-row total"><span>ยอดรวมทั้งหมด</span><span class="val">${formatTHB(order.total)}</span></div>
+      <div class="summary-row" style="padding-top:18px;"><span>${t('od_subtotal')}</span><span>${formatTHB(subtotal)}</span></div>
+      <div class="summary-row"><span>${t('od_shipping_fee')}</span><span>${shipping <= 0 ? t('od_free') : formatTHB(shipping)}</span></div>
+      <div class="summary-row total"><span>${t('od_grand_total')}</span><span class="val">${formatTHB(order.total)}</span></div>
     </div>`;
 
   let timelineBlock;
   if (order.status === 'cancelled') {
     timelineBlock = `
       <div class="dash-card">
-        <h3>สถานะคำสั่งซื้อ</h3>
+        <h3>${t('od_status_title')}</h3>
         <div class="od-cancelled-box">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M9 9l6 6m0-6l-6 6"/></svg>
-          <div style="font-weight:600; font-size:16px; margin-bottom:6px;">คำสั่งซื้อนี้ถูกยกเลิก</div>
-          <div style="font-size:13.5px;">หากมีข้อสงสัยกรุณาติดต่อทีมงานผ่าน LINE หรืออีเมลของเรา</div>
+          <div style="font-weight:600; font-size:16px; margin-bottom:6px;">${t('od_cancelled_title')}</div>
+          <div style="font-size:13.5px;">${t('od_cancelled_text')}</div>
         </div>
       </div>`;
   } else {
     const steps = [
-      { key: 'pending', label: 'รอชำระเงิน' },
-      { key: 'paid', label: 'ชำระเงินแล้ว' },
-      { key: 'processing', label: 'กำลังเตรียมสินค้า' },
-      { key: 'shipping', label: 'จัดส่งแล้ว' },
-      { key: 'completed', label: 'สำเร็จ' },
+      { key: 'pending', label: t('order_status_pending') },
+      { key: 'paid', label: t('order_status_paid') },
+      { key: 'processing', label: t('order_status_processing') },
+      { key: 'shipping', label: t('order_status_shipping') },
+      { key: 'completed', label: t('order_status_completed') },
     ];
     const currentIdx = steps.findIndex(s => s.key === order.status);
     timelineBlock = `
       <div class="dash-card">
-        <h3>สถานะคำสั่งซื้อ</h3>
+        <h3>${t('od_status_title')}</h3>
         <div class="od-timeline">
           ${steps.map((s, i) => {
             const cls = i < currentIdx ? 'done' : (i === currentIdx ? 'current' : '');
@@ -216,7 +216,7 @@ if (!order) {
       <div class="od-head">
         <div>
           <div style="font-family:var(--font-serif); font-size:22px; font-weight:600;">${order.no}</div>
-          <div style="font-size:13px; color:var(--color-ink-faint); margin-top:4px;">สั่งซื้อเมื่อ ${LH.formatDate(order.date)}</div>
+          <div style="font-size:13px; color:var(--color-ink-faint); margin-top:4px;">${t('od_ordered_on', { date: LH.formatDate(order.date) })}</div>
         </div>
         <span class="status-badge status-${order.status}">${LH.statusLabel(order.status)}</span>
       </div>

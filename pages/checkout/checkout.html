@@ -69,17 +69,17 @@
   <div class="checkout-steps">
     <div class="checkout-step done">
       <div class="circle">✓</div>
-      <div class="lbl">ตะกร้าสินค้า</div>
+      <div class="lbl" data-i18n="checkout_step_cart">ตะกร้าสินค้า</div>
     </div>
     <div class="checkout-step-line"></div>
     <div class="checkout-step active">
       <div class="circle">2</div>
-      <div class="lbl">ข้อมูลจัดส่ง</div>
+      <div class="lbl" data-i18n="checkout_step_shipping">ข้อมูลจัดส่ง</div>
     </div>
     <div class="checkout-step-line"></div>
     <div class="checkout-step">
       <div class="circle">3</div>
-      <div class="lbl">ยืนยันคำสั่งซื้อ</div>
+      <div class="lbl" data-i18n="checkout_step_confirm">ยืนยันคำสั่งซื้อ</div>
     </div>
   </div>
 </div>
@@ -90,32 +90,32 @@
       <div class="checkout-left">
 
         <div class="form-card">
-          <h3><span class="step-no">1</span> ข้อมูลผู้รับ</h3>
+          <h3><span class="step-no">1</span> <span data-i18n="checkout_recipient_title">ข้อมูลผู้รับ</span></h3>
           <div class="form-grid">
             <div class="form-field">
-              <label>ชื่อ-นามสกุล</label>
+              <label data-i18n="checkout_fullname">ชื่อ-นามสกุล</label>
               <input type="text" name="fullname" required placeholder="เช่น สมชาย ใจดี">
             </div>
             <div class="form-field">
-              <label>เบอร์โทรศัพท์</label>
+              <label data-i18n="checkout_phone">เบอร์โทรศัพท์</label>
               <input type="tel" name="phone" required pattern="[0-9]{9,10}" placeholder="08xxxxxxxx">
             </div>
             <div class="form-field full">
-              <label>Email</label>
+              <label data-i18n="checkout_email">Email</label>
               <input type="email" name="email" required placeholder="you@email.com">
             </div>
           </div>
         </div>
 
         <div class="form-card">
-          <h3><span class="step-no">2</span> ที่อยู่จัดส่ง</h3>
+          <h3><span class="step-no">2</span> <span data-i18n="checkout_address_title">ที่อยู่จัดส่ง</span></h3>
           <div class="form-grid">
             <div class="form-field full">
-              <label>ที่อยู่</label>
+              <label data-i18n="checkout_address">ที่อยู่</label>
               <textarea name="address" required placeholder="บ้านเลขที่ ซอย ถนน"></textarea>
             </div>
             <div class="form-field">
-              <label>จังหวัด</label>
+              <label data-i18n="checkout_province">จังหวัด</label>
               <select name="province" required>
                 <option value="">เลือกจังหวัด</option>
                 <option>กรุงเทพมหานคร</option>
@@ -129,7 +129,7 @@
               </select>
             </div>
             <div class="form-field">
-              <label>อำเภอ/เขต</label>
+              <label data-i18n="checkout_district">อำเภอ/เขต</label>
               <select name="district" required>
                 <option value="">เลือกอำเภอ/เขต</option>
                 <option>วัฒนา</option>
@@ -141,7 +141,7 @@
               </select>
             </div>
             <div class="form-field">
-              <label>ตำบล/แขวง</label>
+              <label data-i18n="checkout_subdistrict">ตำบล/แขวง</label>
               <select name="subdistrict" required>
                 <option value="">เลือกตำบล/แขวง</option>
                 <option>คลองตันเหนือ</option>
@@ -152,42 +152,42 @@
               </select>
             </div>
             <div class="form-field">
-              <label>รหัสไปรษณีย์</label>
+              <label data-i18n="checkout_zipcode">รหัสไปรษณีย์</label>
               <input type="text" name="zipcode" required pattern="[0-9]{5}" placeholder="10110">
             </div>
             <div class="form-field full">
-              <label>หมายเหตุการจัดส่ง (ถ้ามี)</label>
+              <label data-i18n="checkout_note">หมายเหตุการจัดส่ง (ถ้ามี)</label>
               <textarea name="note" placeholder="เช่น ฝากไว้ที่นิติบุคคล, โทรก่อนส่ง"></textarea>
             </div>
           </div>
         </div>
 
         <div class="form-card">
-          <h3><span class="step-no">3</span> วิธีการชำระเงิน</h3>
+          <h3><span class="step-no">3</span> <span data-i18n="checkout_payment_title">วิธีการชำระเงิน</span></h3>
           <div class="pay-methods">
             <label class="pay-method" data-method="bank">
               <input type="radio" name="payment" value="bank" required>
               <span class="pm-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M4 21V9m16 12V9M3 9l9-6 9 6M6 9v0m12 0v0M9 21v-6h6v6"/></svg>
               </span>
-              <span class="pm-name">โอนผ่านธนาคาร</span>
-              <span class="pm-desc">โอนแล้วแจ้งสลิปกับทีมงาน</span>
+              <span class="pm-name" data-i18n="checkout_bank_transfer">โอนผ่านธนาคาร</span>
+              <span class="pm-desc" data-i18n="checkout_bank_transfer_desc">โอนแล้วแจ้งสลิปกับทีมงาน</span>
             </label>
             <label class="pay-method" data-method="qr">
               <input type="radio" name="payment" value="qr" required>
               <span class="pm-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM19 14h2v2h-2zM14 19h2v2h-2zM19 19h2v2h-2z"/></svg>
               </span>
-              <span class="pm-name">พร้อมเพย์ (QR)</span>
-              <span class="pm-desc">สแกนจ่ายผ่านแอปธนาคาร</span>
+              <span class="pm-name" data-i18n="checkout_promptpay">พร้อมเพย์ (QR)</span>
+              <span class="pm-desc" data-i18n="checkout_promptpay_desc">สแกนจ่ายผ่านแอปธนาคาร</span>
             </label>
             <label class="pay-method" data-method="card">
               <input type="radio" name="payment" value="card" required>
               <span class="pm-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="5" width="20" height="14" rx="2"/><path stroke-linecap="round" d="M2 10h20"/></svg>
               </span>
-              <span class="pm-name">บัตรเครดิต/เดบิต</span>
-              <span class="pm-desc">VISA, Mastercard</span>
+              <span class="pm-name" data-i18n="checkout_credit_card">บัตรเครดิต/เดบิต</span>
+              <span class="pm-desc" data-i18n="checkout_credit_card_desc">VISA, Mastercard</span>
             </label>
           </div>
 
@@ -199,15 +199,15 @@
           <div id="card-fields" style="display:none; margin-top:16px;">
             <div class="form-grid">
               <div class="form-field full">
-                <label>หมายเลขบัตร</label>
+                <label data-i18n="checkout_card_number">หมายเลขบัตร</label>
                 <input type="text" name="cardnumber" placeholder="0000 0000 0000 0000" maxlength="19">
               </div>
               <div class="form-field">
-                <label>วันหมดอายุ</label>
+                <label data-i18n="checkout_card_expiry">วันหมดอายุ</label>
                 <input type="text" name="cardexpiry" placeholder="MM/YY" maxlength="5">
               </div>
               <div class="form-field">
-                <label>CVV</label>
+                <label data-i18n="checkout_card_cvv">CVV</label>
                 <input type="text" name="cardcvv" placeholder="123" maxlength="4">
               </div>
             </div>
@@ -218,21 +218,21 @@
 
       <div class="checkout-right">
         <div class="summary-card">
-          <h3>สรุปคำสั่งซื้อ</h3>
+          <h3 data-i18n="checkout_summary_title">สรุปคำสั่งซื้อ</h3>
           <div id="summary-items"></div>
           <div class="summary-row">
-            <span>ยอดรวมสินค้า</span>
+            <span data-i18n="cart_subtotal">ยอดรวมสินค้า</span>
             <span id="summary-subtotal">฿0</span>
           </div>
           <div class="summary-row">
-            <span>ค่าจัดส่ง</span>
+            <span data-i18n="cart_shipping">ค่าจัดส่ง</span>
             <span id="summary-shipping">฿0</span>
           </div>
           <div class="summary-row total">
-            <span>ยอดรวมทั้งหมด</span>
+            <span data-i18n="cart_grand_total">ยอดรวมทั้งหมด</span>
             <span class="val" id="summary-total">฿0</span>
           </div>
-          <button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;">ยืนยันคำสั่งซื้อ</button>
+          <button type="submit" class="btn btn-primary btn-block" style="margin-top:20px;" data-i18n="checkout_confirm_btn">ยืนยันคำสั่งซื้อ</button>
         </div>
       </div>
     </form>
@@ -267,7 +267,7 @@ function renderSummary() {
         <img src="${p.img}" alt="${p.name}" style="width:52px; height:52px; object-fit:cover; border-radius:4px; flex-shrink:0;">
         <div style="flex:1; min-width:0;">
           <div style="font-size:13.5px; font-weight:600; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${p.name}</div>
-          <div style="font-size:12px; color:var(--color-ink-faint);">จำนวน ${item.qty}</div>
+          <div style="font-size:12px; color:var(--color-ink-faint);">${t('pd_qty_label')} ${item.qty}</div>
         </div>
         <div style="font-size:13.5px; font-weight:600; white-space:nowrap;">${formatTHB(p.price * item.qty)}</div>
       </div>`;
@@ -279,7 +279,7 @@ function renderSummary() {
   const total = subtotal + shipping;
 
   document.getElementById('summary-subtotal').textContent = formatTHB(subtotal);
-  document.getElementById('summary-shipping').textContent = shipping === 0 ? 'ฟรี' : formatTHB(shipping);
+  document.getElementById('summary-shipping').textContent = shipping === 0 ? t('cart_free') : formatTHB(shipping);
   document.getElementById('summary-total').textContent = formatTHB(total);
 
   return total;

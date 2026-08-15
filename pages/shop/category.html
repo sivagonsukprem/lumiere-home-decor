@@ -90,10 +90,10 @@
 <div class="page-banner">
   <div class="container">
     <div class="breadcrumb">
-      <a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span>หมวดหมู่สินค้า</span>
+      <a href="../../index.html" data-i18n="nav_home">หน้าแรก</a><span class="sep">/</span><span data-i18n="breadcrumb_categories">หมวดหมู่สินค้า</span>
     </div>
-    <h1>หมวดหมู่สินค้า</h1>
-    <p style="color:var(--color-ink-soft); font-size:14.5px;">ครบทุกความต้องการในการแต่งบ้าน จากห้องนั่งเล่นถึงสวนหลังบ้าน</p>
+    <h1 data-i18n="page_title_categories">หมวดหมู่สินค้า</h1>
+    <p style="color:var(--color-ink-soft); font-size:14.5px;" data-i18n="section_shop_category_sub">ครบทุกความต้องการในการแต่งบ้าน จากห้องนั่งเล่นถึงสวนหลังบ้าน</p>
   </div>
 </div>
 
@@ -122,8 +122,8 @@ document.getElementById('cat-grid-lg').innerHTML = CATEGORIES.map(c => `
     <div class="cat-card-lg-content">
       <span class="eyebrow">${c.en}</span>
       <h3>${c.th}</h3>
-      <div class="count">${c.count} รายการ</div>
-      <span class="cat-link">ดูสินค้า
+      <div class="count">${t('category_items_count', { n: c.count })}</div>
+      <span class="cat-link">${t('category_view_products')}
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
       </span>
     </div>

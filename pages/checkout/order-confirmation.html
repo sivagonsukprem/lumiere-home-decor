@@ -71,22 +71,22 @@
       <div class="confirm-check">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
       </div>
-      <h1>สั่งซื้อสำเร็จ!</h1>
-      <p>ขอบคุณที่เลือกช้อปกับ Bax Baxter Home Decor เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว</p>
-      <div class="order-no-box" id="order-no-box">หมายเลขคำสั่งซื้อ: —</div>
+      <h1 data-i18n="order_success_title">สั่งซื้อสำเร็จ!</h1>
+      <p data-i18n="order_thanks">ขอบคุณที่เลือกช้อปกับ Bax Baxter Home Decor เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว</p>
+      <div class="order-no-box" id="order-no-box">—</div>
     </div>
 
     <div class="dash-card" style="text-align:center;">
-      <h3 style="margin-bottom:14px;">ขั้นตอนถัดไป</h3>
-      <p style="color:var(--color-ink-soft); line-height:1.9; margin-bottom:0;">
-        ทีมงานจะติดต่อยืนยันคำสั่งซื้อภายใน 24 ชั่วโมง ผ่านเบอร์โทรศัพท์หรืออีเมลที่คุณให้ไว้<br>
+      <h3 style="margin-bottom:14px;" data-i18n="order_next_steps">ขั้นตอนถัดไป</h3>
+      <p style="color:var(--color-ink-soft); line-height:1.9; margin-bottom:0;" data-i18n="order_next_steps_text">
+        ทีมงานจะติดต่อยืนยันคำสั่งซื้อภายใน 24 ชั่วโมง ผ่านเบอร์โทรศัพท์หรืออีเมลที่คุณให้ไว้
         คุณสามารถติดตามสถานะคำสั่งซื้อได้ตลอดเวลาในหน้าประวัติคำสั่งซื้อ
       </p>
     </div>
 
     <div style="display:flex; gap:16px; justify-content:center; margin-top:32px; flex-wrap:wrap;">
-      <a href="../account/orders.html" class="btn btn-outline">ดูประวัติคำสั่งซื้อ</a>
-      <a href="../../index.html" class="btn btn-primary">กลับหน้าแรก</a>
+      <a href="../account/orders.html" class="btn btn-outline" data-i18n="order_view_history">ดูประวัติคำสั่งซื้อ</a>
+      <a href="../../index.html" class="btn btn-primary" data-i18n="order_back_home">กลับหน้าแรก</a>
     </div>
   </div>
 </section>
@@ -106,7 +106,7 @@
 <script>
 const params = new URLSearchParams(window.location.search);
 const orderNo = params.get('order');
-document.getElementById('order-no-box').textContent = 'หมายเลขคำสั่งซื้อ: ' + (orderNo || '—');
+document.getElementById('order-no-box').textContent = t('order_no_label') + ': ' + (orderNo || '—');
 </script>
 </body>
 </html>

@@ -68,36 +68,36 @@
 <div class="auth-wrap">
   <div class="auth-card">
     <span class="eyebrow">Welcome Back</span>
-    <h1>เข้าสู่ระบบ</h1>
-    <p class="sub">ยินดีต้อนรับกลับมา กรอกข้อมูลเพื่อเข้าสู่ระบบบัญชีของคุณ</p>
+    <h1 data-i18n="auth_login_title">เข้าสู่ระบบ</h1>
+    <p class="sub" data-i18n="auth_login_sub">ยินดีต้อนรับกลับมา กรอกข้อมูลเพื่อเข้าสู่ระบบบัญชีของคุณ</p>
 
     <form id="login-form">
       <div class="form-field">
-        <label>Email</label>
+        <label data-i18n="auth_email">Email</label>
         <input type="email" name="email" required placeholder="you@email.com">
       </div>
       <div class="form-field">
-        <label>รหัสผ่าน</label>
+        <label data-i18n="auth_password">รหัสผ่าน</label>
         <input type="password" name="password" required placeholder="••••••••">
       </div>
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:24px;">
         <label class="form-check">
           <input type="checkbox" name="remember">
-          จดจำฉันไว้
+          <span data-i18n="auth_remember_me">จดจำฉันไว้</span>
         </label>
-        <a href="forgot-password.html" class="forgot-link">ลืมรหัสผ่าน?</a>
+        <a href="forgot-password.html" class="forgot-link" data-i18n="auth_forgot_link">ลืมรหัสผ่าน?</a>
       </div>
-      <button type="submit" class="btn btn-primary btn-block">เข้าสู่ระบบ</button>
+      <button type="submit" class="btn btn-primary btn-block" data-i18n="auth_login_btn">เข้าสู่ระบบ</button>
     </form>
 
-    <div class="auth-divider">หรือ</div>
+    <div class="auth-divider" data-i18n="auth_or">หรือ</div>
 
-    <button type="button" class="btn btn-line btn-block" onclick="LH.toast('ฟีเจอร์เข้าสู่ระบบด้วย LINE อยู่ระหว่างการพัฒนา')">
+    <button type="button" class="btn btn-line btn-block" id="btn-line-login">
       <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2C6.48 2 2 5.94 2 10.8c0 4.32 3.55 7.94 8.36 8.66.33.07.77.22.88.5.1.26.07.66.03.92l-.14.87c-.04.26-.2 1 .87.55s5.77-3.4 7.87-5.83C21.36 14.14 22 12.55 22 10.8 22 5.94 17.52 2 12 2z"/></svg>
-      เข้าสู่ระบบด้วย LINE
+      <span data-i18n="auth_login_with_line">เข้าสู่ระบบด้วย LINE</span>
     </button>
 
-    <div class="auth-foot">ยังไม่มีบัญชี? <a href="register.html">สมัครสมาชิก</a></div>
+    <div class="auth-foot"><span data-i18n="auth_no_account">ยังไม่มีบัญชี?</span> <a href="register.html" data-i18n="auth_signup_link">สมัครสมาชิก</a></div>
   </div>
 </div>
 
@@ -119,9 +119,10 @@ document.getElementById('login-form').addEventListener('submit', function (e) {
   const email = this.email.value.trim();
   const name = email.split('@')[0];
   LH.login(name, email);
-  LH.toast('เข้าสู่ระบบสำเร็จ');
+  LH.toast(t('auth_login_success'));
   setTimeout(() => { window.location.href = 'profile.html'; }, 500);
 });
+document.getElementById('btn-line-login').addEventListener('click', () => LH.toast(t('auth_line_wip')));
 </script>
 </body>
 </html>

@@ -101,36 +101,36 @@
     <div class="shop-layout">
       <aside class="filter-sidebar" id="filter-sidebar">
         <div class="filter-sidebar-head">
-          <h3>ตัวกรองสินค้า</h3>
+          <h3 data-i18n="filter_title">ตัวกรองสินค้า</h3>
           <button id="filter-close-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg></button>
         </div>
 
         <div class="filter-block">
-          <h4>หมวดหมู่</h4>
+          <h4 data-i18n="filter_category">หมวดหมู่</h4>
           <div id="filter-categories"></div>
         </div>
 
         <div class="filter-block">
-          <h4>ช่วงราคา</h4>
+          <h4 data-i18n="filter_price_range">ช่วงราคา</h4>
           <div class="price-range-inputs">
-            <input type="number" id="price-min" placeholder="ต่ำสุด" min="0">
+            <input type="number" id="price-min" placeholder="ต่ำสุด" data-i18n-placeholder="filter_price_min" min="0">
             <span>—</span>
-            <input type="number" id="price-max" placeholder="สูงสุด" min="0">
+            <input type="number" id="price-max" placeholder="สูงสุด" data-i18n-placeholder="filter_price_max" min="0">
           </div>
         </div>
 
         <div class="filter-block">
-          <h4>สี</h4>
+          <h4 data-i18n="filter_color">สี</h4>
           <div class="color-swatches" id="filter-colors"></div>
         </div>
 
         <div class="filter-block" style="border-bottom:none; margin-bottom:0;">
           <label class="filter-option" style="justify-content:flex-start; gap:10px;">
             <input type="checkbox" id="filter-instock">
-            <span>สินค้าพร้อมส่งเท่านั้น</span>
+            <span data-i18n="filter_in_stock">สินค้าพร้อมส่งเท่านั้น</span>
           </label>
-          <a href="javascript:void(0)" class="filter-clear-btn" id="filter-clear">ล้างตัวกรองทั้งหมด</a>
-          <button class="btn btn-primary filter-apply-btn" id="filter-apply-btn">แสดงผลลัพธ์</button>
+          <a href="javascript:void(0)" class="filter-clear-btn" id="filter-clear" data-i18n="filter_clear">ล้างตัวกรองทั้งหมด</a>
+          <button class="btn btn-primary filter-apply-btn" id="filter-apply-btn" data-i18n="filter_show_results">แสดงผลลัพธ์</button>
         </div>
       </aside>
 
@@ -140,13 +140,13 @@
           <div class="toolbar-right">
             <button class="filter-mobile-btn" id="filter-mobile-btn">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4h18M6 8h12M9 12h6M11 16h2"/></svg>
-              ตัวกรอง
+              <span data-i18n="filter_button_mobile">ตัวกรอง</span>
             </button>
             <select class="sort-select" id="sort-select">
-              <option value="recommend">แนะนำ</option>
-              <option value="new">ใหม่ล่าสุด</option>
-              <option value="price-asc">ราคา: ต่ำ-สูง</option>
-              <option value="price-desc">ราคา: สูง-ต่ำ</option>
+              <option value="recommend" data-i18n="sort_recommend">แนะนำ</option>
+              <option value="new" data-i18n="sort_new">ใหม่ล่าสุด</option>
+              <option value="price-asc" data-i18n="sort_price_asc">ราคา: ต่ำ-สูง</option>
+              <option value="price-desc" data-i18n="sort_price_desc">ราคา: สูง-ต่ำ</option>
             </select>
           </div>
         </div>
@@ -154,7 +154,7 @@
         <div class="product-grid" id="product-grid"></div>
         <div class="no-results" id="no-results" style="display:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M12 21a9 9 0 100-18 9 9 0 000 18z"/></svg>
-          <p>ไม่พบสินค้าที่ตรงกับตัวกรองของคุณ ลองปรับตัวกรองใหม่อีกครั้ง</p>
+          <p data-i18n="no_results_text">ไม่พบสินค้าที่ตรงกับตัวกรองของคุณ ลองปรับตัวกรองใหม่อีกครั้ง</p>
         </div>
 
         <div class="pagination" id="pagination"></div>
@@ -183,10 +183,10 @@ function productCard(p) {
     <div class="product-thumb">
       ${p.isNew ? '<span class="product-tag new">New</span>' : (p.oldPrice ? '<span class="product-tag sale">Sale</span>' : '')}
       <div class="product-quick-actions">
-        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); this.classList.toggle('active');" title="เพิ่มรายการโปรด">
+        <button class="qa-btn ${wished ? 'active' : ''}" onclick="LH.toggleWishlist(${p.id}); this.classList.toggle('active');" title="${t('nav_wishlist')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21l-7.682-8.318a4.5 4.5 0 010-6.364z"/></svg>
         </button>
-        <a href="product-detail.html?id=${p.id}" class="qa-btn" title="ดูรายละเอียด">
+        <a href="product-detail.html?id=${p.id}" class="qa-btn" title="${t('view_details')}">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
         </a>
       </div>
@@ -201,7 +201,7 @@ function productCard(p) {
         ${p.oldPrice ? `<span class="price-old">${formatTHB(p.oldPrice)}</span>` : ''}
       </div>
       <button class="product-add" ${p.stock === 0 ? 'disabled' : ''} onclick="LH.addToCart(${p.id}, 1, {})">
-        ${p.stock === 0 ? 'สินค้าหมด' : 'เพิ่มลงตะกร้า'}
+        ${p.stock === 0 ? t('out_of_stock') : t('add_to_cart')}
       </button>
     </div>
   </div>`;
@@ -239,10 +239,10 @@ function updateBanner() {
     const cat = CATEGORIES.find(c => c.id === state.categories[0]);
     if (cat) { titleEl.textContent = cat.th; crumbEl.textContent = cat.th; return; }
   }
-  if (initialFilter === 'new') { titleEl.textContent = 'สินค้ามาใหม่'; crumbEl.textContent = 'สินค้ามาใหม่'; return; }
-  if (initialFilter === 'sale') { titleEl.textContent = 'สินค้าลดราคา'; crumbEl.textContent = 'สินค้าลดราคา'; return; }
-  titleEl.textContent = 'สินค้าทั้งหมด';
-  crumbEl.textContent = 'สินค้าทั้งหมด';
+  if (initialFilter === 'new') { titleEl.textContent = t('breadcrumb_new'); crumbEl.textContent = t('breadcrumb_new'); return; }
+  if (initialFilter === 'sale') { titleEl.textContent = t('breadcrumb_sale'); crumbEl.textContent = t('breadcrumb_sale'); return; }
+  titleEl.textContent = t('page_title_all_products');
+  crumbEl.textContent = t('breadcrumb_all_products');
 }
 
 function renderCategoryFilters() {
@@ -322,7 +322,7 @@ function renderPagination(total) {
 
 function applyAndRender() {
   const filtered = getFiltered();
-  document.getElementById('result-count').textContent = `พบสินค้า ${filtered.length} รายการ`;
+  document.getElementById('result-count').textContent = t('results_found', { n: filtered.length });
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   if (currentPage > totalPages) currentPage = totalPages;
   const start = (currentPage - 1) * PAGE_SIZE;

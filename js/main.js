@@ -117,11 +117,8 @@ const LH = {
   },
 
   statusLabel(status) {
-    const map = {
-      pending: 'รอชำระเงิน', paid: 'ชำระเงินแล้ว', processing: 'กำลังเตรียมสินค้า',
-      shipping: 'จัดส่งแล้ว', completed: 'สำเร็จ', cancelled: 'ยกเลิก',
-    };
-    return map[status] || status;
+    const key = 'order_status_' + status;
+    return (typeof t === 'function' && I18N[key]) ? t(key) : status;
   },
 
   formatDate(iso) {
