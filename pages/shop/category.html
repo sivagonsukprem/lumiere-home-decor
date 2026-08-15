@@ -13,12 +13,14 @@
 .cat-card-lg {
   position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4/3.2;
   box-shadow: var(--shadow-sm); transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-  display: block;
+  display: block; min-width: 0; max-width: 100%;
 }
+/* Fallback for WebViews without aspect-ratio support (LINE/FB/IG in-app browsers) */
+.cat-card-lg::after { content: ''; display: block; padding-top: 80%; }
 .cat-card-lg:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.cat-card-lg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
+.cat-card-lg img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: 100%; object-fit: cover; transition: transform 0.5s var(--ease); }
 .cat-card-lg:hover img { transform: scale(1.08); }
-.cat-card-lg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,0) 30%, rgba(28,25,23,0.78) 100%); }
+.cat-card-lg::before { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(28,25,23,0) 30%, rgba(28,25,23,0.78) 100%); z-index: 1; }
 .cat-card-lg-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px; z-index: 2; }
 .cat-card-lg-content .eyebrow { color: var(--color-gold-soft); margin-bottom: 8px; display: block; }
 .cat-card-lg-content h3 { color: #fff; font-size: 26px; margin-bottom: 8px; }

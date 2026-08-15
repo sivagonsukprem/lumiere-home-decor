@@ -395,8 +395,10 @@ h1, h2, h3, h4 {
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  max-width: 100%;
 }
-.hero-visual img { width: 100%; height: 100%; object-fit: cover; }
+.hero-visual::after { content: ''; display: block; padding-top: 125%; }
+.hero-visual img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: 100%; object-fit: cover; }
 
 .hero-badge {
   position: absolute;
@@ -472,9 +474,14 @@ h1, h2, h3, h4 {
   box-shadow: var(--shadow-sm);
   transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
   display: block;
+  min-width: 0;
+  max-width: 100%;
 }
+/* Fallback for WebViews without aspect-ratio support (LINE/FB/IG in-app browsers) */
+.cat-card::after { content: ''; display: block; padding-top: 125%; }
+.cat-card.cat-card-feature::after { padding-top: 62.5%; }
+.cat-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
 .cat-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
-.cat-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease); }
 .cat-card:hover img { transform: scale(1.07); }
 
 .cat-card::before {
@@ -519,16 +526,27 @@ h1, h2, h3, h4 {
   overflow: hidden;
   transition: box-shadow 0.3s var(--ease), border-color 0.3s var(--ease);
   position: relative;
+  min-width: 0;
+  max-width: 100%;
 }
 .product-card:hover { box-shadow: var(--shadow-sm); border-color: var(--color-terracotta); }
 
 .product-thumb {
   position: relative;
+  width: 100%;
+  max-width: 100%;
   aspect-ratio: 1/1;
   overflow: hidden;
   background: var(--color-line-soft);
 }
-.product-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s var(--ease); }
+/* Fallback for WebViews without aspect-ratio support (LINE/FB/IG in-app browsers):
+   padding-top hack forces height even when aspect-ratio is ignored. */
+.product-thumb::before { content: ''; display: block; padding-top: 100%; }
+.product-thumb img {
+  position: absolute; top: 0; left: 0;
+  width: 100%; height: 100%; max-width: 100%;
+  object-fit: cover; transition: transform 0.6s var(--ease);
+}
 .product-card:hover .product-thumb img { transform: scale(1.06); }
 
 .product-tag {
@@ -963,8 +981,9 @@ h1, h2, h3, h4 {
 .usp-item p { font-size: 13px; color: var(--color-ink-soft); }
 
 .split-banner { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-.banner-card { position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16/10; }
-.banner-card img { width: 100%; height: 100%; object-fit: cover; }
+.banner-card { position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16/10; min-width: 0; max-width: 100%; }
+.banner-card::after { content: ''; display: block; padding-top: 62.5%; }
+.banner-card img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; max-width: 100%; object-fit: cover; }
 .banner-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(41,37,31,0.55) 0%, rgba(41,37,31,0.05) 60%); }
 .banner-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; padding: 44px; z-index: 2; color: #fff; }
 .banner-content .eyebrow { color: var(--color-gold-soft); margin-bottom: 10px; }
