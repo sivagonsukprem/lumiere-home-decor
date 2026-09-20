@@ -273,7 +273,7 @@ document.getElementById('home-cat-grid').innerHTML = CATEGORIES.slice(0, 6).map(
   <a href="pages/shop/product-list.html?cat=${c.id}" class="cat-card${i === 0 ? ' cat-card-feature' : ''}">
     <img src="${c.img}" alt="${c.en}">
     <div class="cat-card-label">
-      <div><div class="th">${c.th}</div><div class="en">${c.en}</div></div>
+      <div><div class="en">${c.en}</div><div class="th">${c.th}</div></div>
       <div class="arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg></div>
     </div>
   </a>`).join('');
