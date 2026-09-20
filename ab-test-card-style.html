@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A/B Test — Category Card Style</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&family=Noto+Serif+Thai:wght@500;600;700&family=Noto+Sans+Thai:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  body { background: var(--color-bg); padding: 60px 0 120px; }
+  .ab-label { text-align: center; font-family: var(--font-serif); font-size: 22px; margin: 60px 0 28px; }
+  .ab-sub { text-align: center; color: var(--color-ink-soft); font-size: 13px; margin-top: -20px; margin-bottom: 30px; }
+
+  /* ===== Variant B: borderless premium ===== */
+  .cat-grid-v2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .cat-card-v2 {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    display: block;
+  }
+  .cat-card-v2.feature-v2 { grid-column: span 2; aspect-ratio: 8/5; }
+  .cat-card-v2 img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s cubic-bezier(0.16,1,0.3,1); display: block; }
+  .cat-card-v2:hover img { transform: scale(1.04); }
+  .cat-card-v2::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(28,25,23,0) 55%, rgba(28,25,23,0.5) 100%);
+    opacity: 0.85;
+    transition: opacity 0.4s;
+  }
+  .cat-card-v2:hover::before { opacity: 1; }
+  .cat-card-v2-label {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 22px 24px;
+    z-index: 2;
+  }
+  .cat-card-v2-label .en {
+    color: rgba(255,253,249,0.75);
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 4px;
+  }
+  .cat-card-v2-label .th {
+    color: #FFFDF9; font-family: var(--font-sans); font-size: 17px; font-weight: 500; letter-spacing: 0.01em;
+    display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  }
+  .cat-card-v2-label .th svg { width: 15px; height: 15px; flex-shrink: 0; opacity: 0.8; transition: transform 0.3s; }
+  .cat-card-v2:hover .th svg { transform: translateX(4px); opacity: 1; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="ab-label">A — แบบเดิม (มีกรอบ เงา ป้ายชื่อใหญ่)</div>
+  <div id="cat-grid-a" class="cat-grid"></div>
+
+  <div class="ab-label" style="margin-top:100px;">B — แบบไร้กรอบ พรีเมียม (แนว SKIMS)</div>
+  <div class="ab-sub">การ์ดชิดกัน (gap 2px), ไม่มีขอบ/เงา, ป้ายชื่อเล็กลงและกระชับ</div>
+  <div id="cat-grid-b" class="cat-grid-v2"></div>
+
+</div>
+
+<script src="js/data.js"></script>
+<script>
+const cats = CATEGORIES.slice(0, 3);
+
+document.getElementById('cat-grid-a').innerHTML = cats.map((c, i) => `
+  <a href="#" class="cat-card ${i === 0 ? 'cat-card-feature' : ''}">
+    <img src="${c.img}" alt="${c.en}">
+    <div class="cat-card-label">
+      <div>
+        <div class="th">${c.th}</div>
+        <div class="en">${c.en}</div>
+      </div>
+      <div class="arrow">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#FFFDF9" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </div>
+    </div>
+  </a>`).join('');
+
+document.getElementById('cat-grid-b').innerHTML = cats.map((c, i) => `
+  <a href="#" class="cat-card-v2 ${i === 0 ? 'feature-v2' : ''}">
+    <img src="${c.img}" alt="${c.en}">
+    <div class="cat-card-v2-label">
+      <div class="en">${c.en}</div>
+      <div class="th">${c.th}
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+      </div>
+    </div>
+  </a>`).join('');
+</script>
+</body>
+</html>
